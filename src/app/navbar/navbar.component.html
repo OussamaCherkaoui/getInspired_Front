@@ -1,0 +1,22 @@
+<nav mat-toolbar *ngIf="!(isActive('/logIn')||isActive('/signUp')||isActive('/myProfile')||isActive('/admin'))">
+  <div class="logo">
+    <img ngSrc="./assets/pictures/logo.png" priority alt="Logo" height="80" width="80"/>
+  </div>
+  <div class="links">
+    <a mat-button routerLink="/" [class.active]="isActive('/')">Home</a>
+    <a mat-button routerLink="/spaces" [class.active]="isActive('/spaces')">Spaces</a>
+    <a mat-button routerLink="/events" [class.active]="isActive('/events')">Events</a>
+    <a mat-button routerLink="/subscription" [class.active]="isActive('/subscription')">Subscription</a>
+  </div>
+  <div class="auth" *ngIf="!isLoggedIn">
+    <a mat-button routerLink="/logIn">Login<mat-icon>login</mat-icon></a>
+    <a mat-button routerLink="/signUp">Signup<mat-icon>person_add</mat-icon></a>
+  </div>
+  <div class="user-info" *ngIf="isLoggedIn">
+    <a mat-button routerLink="/myProfile">
+      <mat-icon>account_circle</mat-icon>
+      <span>{{ username }}</span>
+    </a>
+    <a mat-button (click)="logout()"><mat-icon>logout</mat-icon>Se déconnecter</a>
+  </div>
+</nav>
