@@ -49,3 +49,91 @@
 .btn-read-more:hover {
   background-color: #001760;
 }
+
+
+.custom-card-section {
+  margin: 0;
+}
+
+.custom-card {
+  padding: 60px 0px;
+  border: none;
+  box-shadow: none;
+}
+
+.custom-card img {
+  height: 150px;
+  object-fit:contain;
+}
+.custom-card-title, .custom-card-description, .custom-card-price {
+  text-align: center;
+}
+
+.custom-card-price {
+  color: green;
+  font-weight: bold;
+}
+
+.with-bg {
+  background-color: #f8f9fa;
+}
+
+.row {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.inspiration-section {
+  background-color: #2919BA;
+  color: white;
+  height: 370px;
+  text-align: center;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+  gap: 30px;
+}
+
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 350;
+}
+
+.subtitle {
+  font-size: 2.8rem;
+  font-weight: 400;
+}
+
+.description {
+  font-size: 1.2rem;
+  font-weight: 100;
+}
+
+.view-more-btn {
+  background-color: #290063;
+  color: white;
+  font-weight: 400;
+  padding: 22px 40px;
+  font-size: 1.2rem;
+  margin-top: 20px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.button-content {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.view-more-btn:hover {
+  background-color: #1d004c;
+}
+.icon-right {
+  vertical-align: middle;
+}
