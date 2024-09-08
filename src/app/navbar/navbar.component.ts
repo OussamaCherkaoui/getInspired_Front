@@ -27,8 +27,11 @@ export class NavbarComponent {
   ngOnInit(): void {
     this.authService.isLoggedIn.subscribe(
       (loggedIn: boolean) => {
-        this.username=this.decodeJwt.getUsernameFromToken();
-        this.isLoggedIn = loggedIn;
+        if (loggedIn)
+        {
+          this.username=this.decodeJwt.getUsernameFromToken();
+          this.isLoggedIn = loggedIn;
+        }
       }
     );
   }

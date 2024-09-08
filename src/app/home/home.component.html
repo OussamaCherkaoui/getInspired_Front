@@ -1,6 +1,6 @@
 <div class="header-section">
   <img src="/assets/pictures/header_home.jpg" alt="Header Image" class="header-image">
-  <div class="header-content">
+  <div class="header-content d-flex flex-column ">
     <h1>BOOST YOUR <span style="color: #D8FFB3">PRODUCTIVITY</span></h1>
     <a href="#" class="btn-read-more">
       Read More
@@ -10,8 +10,8 @@
 </div>
 
 <!-- //////////////////////////////////////////////////////////////////////////// -->
-<div class="custom-card-section container">
-  <div class="row">
+<div class="custom-card-section w-100">
+  <div class="row w-100">
     <div class="col-md-3">
       <mat-card class="custom-card with-bg">
         <img mat-card-image src="/assets/pictures/privateOffice.jpg" alt="Photo 1">
@@ -64,7 +64,7 @@
     <div class="title">Get Inspired</div>
     <div class="subtitle">Pick your favorite space</div>
     <div class="description">Explore our available coworking spaces and book now by clicking here.</div>
-  <button mat-raised-button color="primary" class="view-more-btn">
+  <button mat-raised-button class="view-more-btn">
     <div class="button-content">
       <span>View More</span>
       <svg class="icon-right" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 330 330" fill="currentColor" stroke="currentColor">
@@ -73,3 +73,60 @@
     </div>
   </button>
 </div>
+
+<!-- //////////////////////////////////////////////////////////////////////////// -->
+
+
+<div class="event-section m-0 mt-5 w-100">
+  <h6 class="text-center text-danger">Event Get Inspired</h6>
+  <h5 class="text-center mt-3 fw-bold" >Don't miss out on these exciting events! Stay tuned for more updates.</h5>
+
+  <div class="row card-event-section w-100 d-flex align-items-center justify-content-center ">
+    <div class="col-md-4" *ngFor="let event of events">
+      <mat-card class="event-card">
+        <img mat-card-image [src]="event.picture" alt="{{ event.name }}" height="200" width="100%">
+        <mat-card-content style="height: 300px">
+          <p class="event-card-date" style="color: #B4B4B4">{{ event.date | date:'dd MMMM yyyy' }}</p>
+          <p class="event-card-title">{{ event.name }}</p>
+          <p class="event-card-description">{{ event.description }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button>
+            <div class="button_Reserver d-flex align-items-center justify-content-center gap-3">
+              <span>Réservé</span>
+              <svg width="24px" height="24px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path fill="#000000" d="M459.15 269.75a133.197 133.197 0 0 1-55.862 179.975l-42.782 22.541-10.52 5.533a71.277 71.277 0 0 1-62.966 1.685l-167.077-71.38 15.733-46.676 99.363 19.194-51.458-97.78-82.843-157.411 40.357-21.232 82.844 157.457 19.934-10.485-36.521-69.445 40.335-21.22 36.52 69.445 19.935-10.485-28.2-53.598 40.358-21.232 28.2 53.598 19.945-10.576-19.354-36.886 40.346-21.174 19.354 36.885 54.348 103.301zM73.268 146.674a60.03 60.03 0 0 1 42.361-102.459 60.098 60.098 0 0 1 56.58 80.169l10.588 20.013A78.29 78.29 0 0 0 115.708 26a78.233 78.233 0 0 0-5.635 156.262L99.428 162.02a59.688 59.688 0 0 1-26.16-15.346z"></path></g></svg>
+            </div>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+<!-- //////////////////////////////////////////////////////////////////////////// -->
+
+<div class="w-100" style="background-color: #F0F0F0">
+  <div class="row align-items-center p-0 m-0 w-100">
+
+    <div class="col-lg-7 d-flex flex-column gap-4 p-5">
+      <h5 class="subscription-title fw-normal">Subscription</h5>
+      <h5 class="lead fw-bold" >Discover our flexible membership plans and find the perfect fit for your needs.</h5>
+      <h6 class="mt-3">Click here to explore and subscribe!</h6>
+      <button mat-raised-button class="view-more-subscription w-50">
+        <div class="button-content">
+          <span>View More</span>
+          <svg class="icon-right" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 330 330" fill="currentColor" stroke="currentColor">
+            <path d="M250.606,154.389l-150-149.996c-5.857-5.858-15.355-5.858-21.213,0.001 c-5.857,5.858-5.857,15.355,0.001,21.213l139.393,139.39L79.393,304.394c-5.857,5.858-5.857,15.355,0.001,21.213 C82.322,328.536,86.161,330,90,330s7.678-1.464,10.607-4.394l149.999-150.004c2.814-2.813,4.394-6.628,4.394-10.606 C255,161.018,253.42,157.202,250.606,154.389z"></path>
+          </svg>
+        </div>
+      </button>
+    </div>
+
+    <div class="col-lg-5 p-0">
+      <mat-card class="rounded-0 m-0">
+        <img mat-card-image style="height: 450px" src="/assets/pictures/subscription_home.jpg" alt="Membership Image">
+      </mat-card>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

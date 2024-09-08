@@ -20,7 +20,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 50px;
+  margin-top: 90px;
   position: absolute;
   color: white;
 }
@@ -30,7 +30,7 @@
 }
 
 .btn-read-more {
-  margin-top: 10px;
+  margin-top: 20px;
   width: 200px;
   display: flex;
   align-items: center;
@@ -136,4 +136,82 @@
 }
 .icon-right {
   vertical-align: middle;
+}
+
+/*////////////////////////////////////////////////////////*/
+.event-section {
+  padding: 40px;
+  margin: 20px;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.event-card {
+  height: 400px;
+  width:350px;
+  border: none;
+  box-shadow: none;
+}
+
+.card-event-section{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 30px;
+  width: 100%;
+}
+
+
+.event-card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+
+
+.mat-mdc-card-content {
+  display: block;
+  padding: 0;
+}
+
+.mdc-card__actions{
+  margin-top: 8px;
+  padding: 0;
+}
+.mdc-card__actions button{
+  color: black;
+  background-color: #B4B4B4;
+}
+
+.subscription-title {
+  color: #d9534f;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.lead {
+  font-size: 1.25rem;
+}
+
+.mat-raised-button {
+  font-weight: bold;
+}
+
+.view-more-subscription{
+  background-color: #000000;
+  color: white;
+  font-weight: 400;
+  padding: 30px 40px;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.view-more-subscription:hover {
+  background-color: #656565;
 }

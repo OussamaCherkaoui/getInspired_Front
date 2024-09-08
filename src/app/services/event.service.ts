@@ -25,7 +25,7 @@ export class EventService {
   }
 
   public getAllEvents():Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/getAll`, { headers: this.getHeaders() });
+    return this.http.get<any>(`${this.apiUrl}/getAll`);
   }
 
   public getEventById(id:number):Observable<any> {

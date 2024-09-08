@@ -1,0 +1,40 @@
+.footer-section {
+  padding: 20px;
+}
+
+.social-icons mat-icon {
+  font-size: 36px;
+  margin-right: 15px;
+  color: #3b5998; /* Facebook Color */
+}
+
+.social-icons mat-icon:nth-child(2) {
+  color: #E1306C; /* Instagram Color */
+}
+
+.social-icons mat-icon:nth-child(3) {
+  color: #1DA1F2; /* Twitter Color */
+}
+
+.address, .contact-info div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+address mat-icon, .contact-info mat-icon {
+  margin-right: 10px;
+}
+
+.footer-links li {
+  list-style: none;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: white;
+}
+
+.footer-links a:hover {
+  color:blanchedalmond;
+}
