@@ -71,3 +71,115 @@
   color: #C10000;
 }
 
+
+
+
+/*////////////////////////////////////////////////////////*/
+.white-section {
+  margin: 0;
+  background-color: #fff;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  color: #333;
+}
+
+.card-event-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.event-card {
+  height: 400px;
+  width: 100%;
+  max-width: 350px;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+
+.mat-paginator.custom-paginator {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.mat-paginator .mat-mdc-paginator-navigation button {
+  background-color: #007bff;
+  color: white;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.mat-paginator .mat-mdc-paginator-navigation button:hover {
+  background-color: #0056b3;
+}
+
+.mat-paginator .mat-mdc-paginator-navigation button[disabled] {
+  background-color: #ccc;
+}
+
+
+
+
+
+.reserved-section {
+  background-color: #2919BA;
+  color: white;
+  text-align: center;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  padding: 70px;
+  margin: 0;
+  gap: 30px;
+}
+
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 350;
+}
+
+
+.description {
+  font-size: 1.2rem;
+  font-weight: 100;
+}
+
+
+.view-reserved-btn {
+  background-color: #ffffff;
+  color: #000000;
+  font-weight: 400;
+  padding: 35px 30px;
+  font-size: 1.7rem;
+  margin-top: 20px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s ease-out;
+}
+.button-content {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.view-reserved-btn:hover {
+  background-color: #d8dfe1;
+}
+.icon-right {
+  vertical-align: middle;
+}

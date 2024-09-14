@@ -11,16 +11,69 @@
 <div class="coworking-section mat-elevation-z3">
   <div class="row content">
     <div class="col-md-6 text-left fst-italic">
-      <p class="top-text">Our spaces are designed for productivity and comfort, ensuring you find the perfect environment to work efficiently.</p>
+      <p class="top-text">Whether you’re looking to expand your
+        knowledge, meet like-minded
+        professionals, or simply have a good
+        time, our events are crafted to inspire
+        and connect.</p>
     </div>
     <div class="col-md-6 image-right">
-      <img src="/assets/pictures/space_intro.jpg" alt="Coworking space" class="img-fluid">
+      <img src="/assets/pictures/event_intro.jpg" alt="Coworking space" class="img-fluid">
     </div>
   </div>
   <div class="bottom-text">
-    <p><span class="highlight">Explore</span> our diverse coworking spaces tailored to meet your needs, whether you seek a quiet spot to focus or a collaborative area to brainstorm</p>
+    <p><span class="highlight">Stay</span> informed about our latest events, workshops, and networking opportunities</p>
   </div>
 </div>
 
 
+
+<!-- //////////////////////////////////////////////////////////////////////////// -->
+
+<div class="white-section mat-elevation-z2 p-3">
+  <h2 class="text-center m-5 section-title">Explore Spaces Tailored Just for You</h2>
+  <div class="row card-event-section">
+    <div class="col-md-4 mb-3" *ngFor="let event of pagedEvents">
+      <mat-card class="event-card">
+        <img mat-card-image [src]="event.picture" alt="{{ event.name }}" height="200" width="100%">
+        <mat-card-content style="height: 300px">
+          <p class="event-card-date" style="color: #B4B4B4">{{ event.date | date:'dd MMMM yyyy' }}</p>
+          <p class="event-card-title">{{ event.name }}</p>
+          <p class="event-card-description">{{ event.description }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button>
+            <div class="button_Reserver d-flex align-items-center justify-content-center gap-3">
+              <span>Réservé</span>
+              <svg width="24px" height="24px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+                <path fill="#000000" d="M459.15 269.75a133.197 133.197 0 0 1-55.862 179.975l-42.782 22.541-10.52 5.533a71.277 71.277 0 0 1-62.966 1.685l-167.077-71.38 15.733-46.676 99.363 19.194-51.458-97.78-82.843-157.411 40.357-21.232 82.844 157.457 19.934-10.485-36.521-69.445 40.335-21.22 36.52 69.445 19.935-10.485-28.2-53.598 40.358-21.232 28.2 53.598 19.945-10.576-19.354-36.886 40.346-21.174 19.354 36.885 54.348 103.301z"></path>
+              </svg>
+            </div>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center mt-4">
+    <mat-paginator style="background-color: #ffffff;color: #000000;border-radius: 12px;padding: 5px 20px;margin-bottom: 20px;font-size: 18px;font-weight: bold" [length]="events.length" [pageSize]="6" (page)="onPageChange($event)">
+    </mat-paginator>
+  </div>
+</div>
+
+
+<!-- //////////////////////////////////////////////////////////////////////////// -->
+
+<div class="reserved-section">
+  <div class="title">Get Inspired</div>
+  <div class="description fs-2">Check your reserved events and stay updated on all upcoming activities.</div>
+  <button mat-raised-button class="view-reserved-btn">
+    <div class="button-content">
+      <span>View My Reserved Events</span>
+      <svg fill="#000000" width="36px" height="36px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg" stroke="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M1411.824 0c31.17 0 56.47 25.3 56.47 56.471v56.47h169.412c93.403 0 169.412 76.01 169.412 169.412V1920H113V282.353c0-93.402 76.009-169.412 169.412-169.412h169.41v-56.47c0-31.172 25.3-56.47 56.472-56.47s56.47 25.298 56.47 56.47v56.47h790.589v-56.47c0-31.172 25.299-56.47 56.47-56.47Zm282.352 564.705H225.942v1242.353h1468.234V564.705Zm-322.277 242.428 79.849 79.851-604.687 604.687-378.692-378.805 79.85-79.85 298.842 298.842 524.838-524.725Zm-920.076-581.25H282.412c-31.06 0-56.47 25.298-56.47 56.47v169.412h1468.234V282.353c0-31.172-25.411-56.47-56.47-56.47h-169.412v56.47c0 31.172-25.3 56.471-56.47 56.471-31.172 0-56.471-25.299-56.471-56.47v-56.472H564.765v56.471c0 31.172-25.3 56.471-56.471 56.471-31.171 0-56.471-25.299-56.471-56.47v-56.472Z" fill-rule="evenodd"></path> </g></svg>
+    </div>
+  </button>
+</div>
+
+<!-- //////////////////////////////////////////////////////////////////////////// -->
 <app-footer></app-footer>
