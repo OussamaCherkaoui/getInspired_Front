@@ -2,7 +2,7 @@ export class Space {
   id?: number;
   name: string | undefined;
   description: string|undefined;
-  price_per_day: string | undefined;
+  price_per_day: number | undefined;
   picture: string | undefined;
   isReserved?:boolean;
 

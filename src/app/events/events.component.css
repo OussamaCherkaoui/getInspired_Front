@@ -28,3 +28,46 @@
   font-weight: 600;
   font-size: 45px;
 }
+
+
+
+.coworking-section {
+  background-color: #F5F5F5;
+  padding: 50px;
+  margin: 0;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text-left .top-text {
+  color: #969696;
+  font-size: 19px;
+  padding-right: 50px;
+}
+
+.image-right img {
+  width: 100%;
+  border-radius: 8px;
+  border: solid 2px black;
+  height: auto;
+}
+
+.bottom-text {
+  margin-top: 60px;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.bottom-text p {
+  color: black;
+}
+
+.bottom-text .highlight {
+  color: #C10000;
+}
+
