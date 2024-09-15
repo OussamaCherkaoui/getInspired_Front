@@ -5,4 +5,75 @@
   </div>
 </div>
 
+
+
+
+<div class="coworking-section">
+  <div class="row d-flex align-items-center justify-content-center">
+    <div class="col-md-6 text-left fst-italic">
+      <p class="top-text">Whether you need a day pass or a monthly
+        membership, we offer a variety of options
+        to suit your needs. Enjoy priority access,
+        discounts, and more with your subscription.</p>
+    </div>
+    <div class="col-md-6 image-right">
+      <img src="/assets/pictures/sub_intro.jpg" alt="Coworking space" class="img-fluid">
+    </div>
+  </div>
+  <div class="bottom-text">
+    <p><span class="highlight">Unlock</span> exclusive benefits by choosing one of our flexible membership plans</p>
+  </div>
+</div>
+
+
+
+<!-- //////////////////////////////////////////////////////////////////////////// -->
+<div class="subscription-section p-5">
+  <h2 class="text-center mb-4">Subscribe to Our Coworking Space</h2>
+  <div class="white-section  p-5 ">
+    <form class="subscription-form" (submit)="subscribe()">
+      <div class="form-group mb-3">
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Subscription Type</mat-label>
+          <mat-select [(ngModel)]="subscriptionType" name="subscriptionType">
+            <mat-option value="monthly">Monthly</mat-option>
+            <mat-option value="annually">Annualy</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group mb-3">
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Start Date</mat-label>
+          <input matInput [matDatepicker]="picker" placeholder="Choose a start date" [(ngModel)]="startDate" name="startDate">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group text-center">
+        <button mat-raised-button style="background-color: #FEF9E7" class="d-flex align-items-center justify-content-center">
+          <span>Subscribe</span>
+          <mat-icon class="ms-2">touch_app</mat-icon>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- //////////////////////////////////////////////////////////////////////////// -->
+
+<div class="reserved-section">
+  <div class="title">Get Inspired</div>
+  <div class="description fs-2">Check your subscription details and stay informed about all available plans</div>
+  <button mat-raised-button class="view-reserved-btn">
+    <div class="button-content">
+      <span>View Subscription Details</span>
+      <svg fill="#000000" width="36px" height="36px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg" stroke="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M1411.824 0c31.17 0 56.47 25.3 56.47 56.471v56.47h169.412c93.403 0 169.412 76.01 169.412 169.412V1920H113V282.353c0-93.402 76.009-169.412 169.412-169.412h169.41v-56.47c0-31.172 25.3-56.47 56.472-56.47s56.47 25.298 56.47 56.47v56.47h790.589v-56.47c0-31.172 25.299-56.47 56.47-56.47Zm282.352 564.705H225.942v1242.353h1468.234V564.705Zm-322.277 242.428 79.849 79.851-604.687 604.687-378.692-378.805 79.85-79.85 298.842 298.842 524.838-524.725Zm-920.076-581.25H282.412c-31.06 0-56.47 25.298-56.47 56.47v169.412h1468.234V282.353c0-31.172-25.411-56.47-56.47-56.47h-169.412v56.47c0 31.172-25.3 56.471-56.47 56.471-31.172 0-56.471-25.299-56.471-56.47v-56.472H564.765v56.471c0 31.172-25.3 56.471-56.471 56.471-31.171 0-56.471-25.299-56.471-56.47v-56.472Z" fill-rule="evenodd"></path> </g></svg>
+    </div>
+  </button>
+</div>
+
+<!-- //////////////////////////////////////////////////////////////////////////// -->
+
 <app-footer></app-footer>

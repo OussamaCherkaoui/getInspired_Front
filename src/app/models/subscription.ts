@@ -1,8 +1,8 @@
 export class Subscription {
   id?: number;
   type: string | undefined;
-  start_date: string|undefined;
-  end_date: string|undefined;
+  start_date: Date | undefined;
+  end_date: Date| undefined;
   isConfirmed?:boolean;
   notification: string | undefined;
   idMembre: number | undefined;
