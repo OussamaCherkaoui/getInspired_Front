@@ -1,0 +1,79 @@
+<div class="dashboard-overview">
+  <div class="row">
+    <div class="col-md-3">
+      <mat-card class="stat-card users-card">
+        <mat-card-header>
+          <mat-icon>person</mat-icon>
+          <mat-card-title>Registered Users</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <h2>{{ registeredUsers }}</h2>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="col-md-3">
+      <mat-card class="stat-card subscription-card">
+        <mat-card-header>
+          <mat-icon>subscriptions</mat-icon>
+          <mat-card-title>Subscriptions</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <h2>{{ subscriptionsCount }}</h2>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="col-md-3">
+      <mat-card class="stat-card events-card">
+        <mat-card-header>
+          <mat-icon>event</mat-icon>
+          <mat-card-title>Upcoming Events</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <h2>{{ upcomingEvents }}</h2>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="col-md-3">
+      <mat-card class="stat-card spaces-card">
+        <mat-card-header>
+          <mat-icon>meeting_room</mat-icon>
+          <mat-card-title>Free Spaces Today</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <h2>{{ freeSpacesToday }}</h2>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="row mt-3" style="height: 70vh">
+    <div class="col-md-4 m-0">
+      <mat-card style="height: 345px;">
+        <mat-card-header style="height: 30px">
+          <mat-card-title>Calendar</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-calendar [(selected)]="selectedDate"></mat-calendar>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="col-md-8 m-0">
+      <mat-card style="height: 345px;">
+        <mat-card-header>
+          <mat-card-title>Subscription Analysis: Distribution by Subscription Types</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <canvas baseChart
+                  [datasets]="[{ data: chartData }]"
+                  [labels]="chartLabels"
+          >
+          </canvas>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
