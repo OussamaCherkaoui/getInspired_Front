@@ -41,5 +41,10 @@ export class SubscriptionService {
   public sendNotification(idSubscription:number,notification:string): Observable<any> {
     return this.http.put<any>(`${this.apiUrl}/sendNotification/${idSubscription}/${notification}`,null, { headers: this.getHeaders() });
   }
-
+  public countSubscriptionConfirmed(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/countSubscriptionConfirmed`, { headers: this.getHeaders() });
+  }
+  getSubscriptionCountByType(): Observable<{ [key: string]: number }> {
+    return this.http.get<{ [key: string]: number }>(`${this.apiUrl}/count-by-type`, { headers: this.getHeaders() });
+  }
 }

@@ -6,15 +6,19 @@ import {AdminComponent} from "./admin/admin.component";
 import {SpacesComponent} from "./spaces/spaces.component";
 import {EventsComponent} from "./events/events.component";
 import {SubscriptionComponent} from "./subscription/subscription.component";
-import {ProfileComponent} from "./profile/profile.component";
+import {DashboardOverviewComponent} from "./dashboard-overview/dashboard-overview.component";
 
 export const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'logIn', component: LoginComponent},
   { path: 'signUp', component: SignupComponent},
-  {path:'admin',component:AdminComponent},
+  {path:'admin',component:AdminComponent,children: [
+      {
+        path: 'dashboard',
+        component: DashboardOverviewComponent
+      }
+    ]},
   {path:'spaces',component:SpacesComponent},
   {path:'events',component:EventsComponent},
   {path:'subscription',component:SubscriptionComponent},
-  {path:'myProfile',component:ProfileComponent}
 ];

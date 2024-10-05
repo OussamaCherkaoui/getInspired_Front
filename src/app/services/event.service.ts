@@ -43,4 +43,7 @@ export class EventService {
   public deleteEvent(id: number | undefined): Observable<any> {
     return this.http.delete<any>(`${this.apiUrl}/delete/${id}`, { headers: this.getHeaders() });
   }
+  public countEvent(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/countEvent`, { headers: this.getHeaders() });
+  }
 }

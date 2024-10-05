@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import {jwtDecode} from "jwt-decode";
+import {jwtDecode, JwtPayload} from "jwt-decode";
 import {UserService} from "./user.service";
+import {CustomJwtPayload} from "../models/custom-jwt-payload";
 
 @Injectable({
   providedIn: 'root'
@@ -24,8 +25,13 @@ export class DecodejwtService {
   }
   public getUsernameFromToken() :any{
     this.getToken();
-    const decodedToken = this.decodeToken(this.token);
+    const decodedToken:CustomJwtPayload = this.decodeToken(this.token) as CustomJwtPayload;
     return decodedToken.sub;
+  }
+  public getRoleFromToken() :any{
+    this.getToken();
+    const decodedToken:CustomJwtPayload = this.decodeToken(this.token) as CustomJwtPayload;
+    return decodedToken.role;
   }
   public getIdByUsername() {
     const username = this.getUsernameFromToken()

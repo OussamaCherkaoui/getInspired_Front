@@ -1,1 +1,29 @@
-<p>admin works!</p>
+<mat-sidenav-container class="sidenav-container h-100">
+  <mat-sidenav #sidenav mode="side" opened>
+    <div class="user-view p-4 text-center">
+      <div class="background">
+        <mat-icon class="background-icon">landscape</mat-icon>
+      </div>
+      <mat-icon class="user-icon">account_circle</mat-icon>
+      <h6>{{ adminName }}</h6>
+    </div>
+    <mat-nav-list>
+      <a mat-list-item *ngFor="let item of menuItems" [routerLink]="item.link" class="text-white" routerLinkActive="active">
+        <mat-icon class="mr-3">{{item.icon}}</mat-icon>
+        {{item.text}}
+      </a>
+    </mat-nav-list>
+    <mat-divider class="my-2"></mat-divider>
+    <mat-nav-list>
+      <a mat-list-item (click)="logout()" class="text-white">
+        <mat-icon class="mr-3">exit_to_app</mat-icon>
+        Logout
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="container-fluid p-4">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

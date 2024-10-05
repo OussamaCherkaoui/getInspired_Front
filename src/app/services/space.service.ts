@@ -51,5 +51,8 @@ export class SpaceService {
   public changeEtatToNotReserve(id:number): Observable<any> {
     return this.http.put<any>(`${this.apiUrl}/notReserve/${id}`,null, { headers: this.getHeaders() });
   }
+  public countFreeSpaceForToday(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/countFreeSpaceForToday`, { headers: this.getHeaders() });
+  }
 
 }
