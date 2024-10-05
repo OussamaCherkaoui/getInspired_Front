@@ -3,7 +3,7 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/
 import {Membre} from "../models/membre";
 import {Role} from "../models/role";
 import {MembreService} from "../services/membre.service";
-import {Router} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 import {MatFormField, MatFormFieldModule} from "@angular/material/form-field";
 import {MatInput, MatInputModule} from "@angular/material/input";
 import {NgIf} from "@angular/common";
@@ -18,7 +18,8 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
     ReactiveFormsModule,
     MatInputModule,
     NgIf,
-    MatButtonModule
+    MatButtonModule,
+    RouterLink
   ],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css'
@@ -29,6 +30,7 @@ export class SignupComponent {
     email: '', id: 0, password: '', phone: '', role: Role.MEMBRE, username: ''
   }
   message:  string = '';
+  error:string='';
 
   constructor(private fb: FormBuilder,private membreService:MembreService,private router: Router) {
     this.signUpForm = this.fb.group({
@@ -49,10 +51,16 @@ export class SignupComponent {
       if (this.signUpForm.valid) {
         this.membreService.registerMembre(this.membre).subscribe(data=>{
           console.log(data);
-          this.message='Compte créer avec succées';
+          if (data)
+          {
+            this.message='Compte created with succées';
+          }
+          else{
+            this.error='verify your Information !!'
+          }
         });
       } else {
-        console.log('Remplit toutes les champs !!');
+        this.error="Remplit toutes les champs !!"
       }
     }
   }

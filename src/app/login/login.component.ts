@@ -4,7 +4,7 @@ import {User} from "../models/user";
 import {AuthenticationRequest} from "../models/AuthenticationRequest";
 import {DecodejwtService} from "../services/decodejwt.service";
 import {UserService} from "../services/user.service";
-import {Router} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 import {Role} from "../models/role";
 import {MatCard, MatCardContent, MatCardModule, MatCardTitle} from "@angular/material/card";
 import {MatFormField, MatFormFieldModule} from "@angular/material/form-field";
@@ -23,7 +23,8 @@ import {NgIf} from "@angular/common";
     MatFormFieldModule,
     MatButtonModule,
     MatInputModule,
-    NgIf
+    NgIf,
+    RouterLink
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
@@ -56,7 +57,7 @@ export class LoginComponent implements OnInit{
                 this.user = res;
                 this.authService.loginActive();
                 if (this.user.role === Role.ADMIN) {
-                  this.router.navigateByUrl("/admin");
+                  this.router.navigateByUrl("/admin/dashboard");
                 } else if (this.user.role === Role.MEMBRE){
                   this.router.navigateByUrl(`/`);
                 }
@@ -75,4 +76,5 @@ export class LoginComponent implements OnInit{
 
   ngOnInit(): void {
   }
+
 }
