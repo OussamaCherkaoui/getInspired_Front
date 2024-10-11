@@ -1,0 +1,156 @@
+<div class="container mt-5">
+
+  <div class="row">
+
+    <div class="col-md-12 mb-4">
+      <div class="row">
+
+        <div class="col-md-6">
+          <h4>Confirmed Reservations</h4>
+          <table mat-table [dataSource]="confirmedReservations" class="mat-elevation-z8">
+
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef> ID </th>
+              <td mat-cell *matCellDef="let reservation"> {{ reservation.id }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="idMembre">
+              <th mat-header-cell *matHeaderCellDef> Member </th>
+              <td mat-cell *matCellDef="let reservation"> {{ reservation.idMembre }} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="idSpace">
+              <th mat-header-cell *matHeaderCellDef> Space </th>
+              <td mat-cell *matCellDef="let reservation"> {{ reservation.idSpace }} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="start_time">
+              <th mat-header-cell *matHeaderCellDef> Start Time </th>
+              <td mat-cell *matCellDef="let reservation"> {{ reservation.start_time | date:'yyyy MM dd HH:mm:ss' }} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="end_time">
+              <th mat-header-cell *matHeaderCellDef> End Time </th>
+              <td mat-cell *matCellDef="let reservation"> {{ reservation.end_time | date:'yyyy MM dd HH:mm:ss' }} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="action">
+              <th mat-header-cell *matHeaderCellDef> Action </th>
+              <td mat-cell *matCellDef="let reservation">
+                <button mat-raised-button color="warn" (click)="cancelReservation(reservation.id)">Cancel</button>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="['id', 'idMembre', 'idSpace', 'start_time', 'end_time', 'action']"></tr>
+            <tr mat-row *matRowDef="let row; columns: ['id', 'idMembre', 'idSpace', 'start_time', 'end_time', 'action']"></tr>
+          </table>
+        </div>
+
+
+        <div class="col-md-6">
+          <h4>Unconfirmed Reservations</h4>
+          <table mat-table [dataSource]="unconfirmedReservations" class="mat-elevation-z8">
+
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef> ID </th>
+              <td mat-cell *matCellDef="let reservation"> {{ reservation.id }} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="idMembre">
+              <th mat-header-cell *matHeaderCellDef> Member </th>
+              <td mat-cell *matCellDef="let reservation"> {{ reservation.idMembre }} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="idSpace">
+              <th mat-header-cell *matHeaderCellDef> Space </th>
+              <td mat-cell *matCellDef="let reservation"> {{ reservation.idSpace }} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="start_time">
+              <th mat-header-cell *matHeaderCellDef> Start Time </th>
+              <td mat-cell *matCellDef="let reservation"> {{ reservation.start_time | date:'yyyy MM dd HH:mm:ss' }} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="end_time">
+              <th mat-header-cell *matHeaderCellDef> End Time </th>
+              <td mat-cell *matCellDef="let reservation"> {{ reservation.end_time | date:'yyyy MM dd HH:mm:ss' }} </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="action">
+              <th mat-header-cell *matHeaderCellDef> Action </th>
+              <td mat-cell *matCellDef="let reservation">
+                <button mat-raised-button color="primary" (click)="confirmReservation(reservation.id)">Confirm</button>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="['id', 'idMembre', 'idSpace', 'start_time', 'end_time', 'action']"></tr>
+            <tr mat-row *matRowDef="let row; columns: ['id', 'idMembre', 'idSpace', 'start_time', 'end_time', 'action']"></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-md-12">
+      <h4>Reservation History</h4>
+      <div class="search-bar mb-4">
+        <div class="input-group">
+          <input type="date" [(ngModel)]="searchDate" class="form-control" placeholder="Select date">
+
+          <button mat-raised-button color="primary" (click)="searchByDate()">Search</button>
+
+          <button mat-raised-button color="accent" (click)="loadReservationsHistory()">Show All</button>
+        </div>
+      </div>
+      <table mat-table [dataSource]="reservationHistory" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> ID </th>
+          <td mat-cell *matCellDef="let reservation"> {{ reservation.id }} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="idMembre">
+          <th mat-header-cell *matHeaderCellDef> Member </th>
+          <td mat-cell *matCellDef="let reservation"> {{ reservation.idMembre }} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="idSpace">
+          <th mat-header-cell *matHeaderCellDef> Space </th>
+          <td mat-cell *matCellDef="let reservation"> {{ reservation.idSpace }} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="start_time">
+          <th mat-header-cell *matHeaderCellDef> Start Time </th>
+          <td mat-cell *matCellDef="let reservation"> {{ reservation.start_time | date:'yyyy MM dd HH:mm:ss' }} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="end_time">
+          <th mat-header-cell *matHeaderCellDef> End Time </th>
+          <td mat-cell *matCellDef="let reservation"> {{ reservation.end_time | date:'yyyy MM dd HH:mm:ss' }} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="isConfirmed">
+          <th mat-header-cell *matHeaderCellDef> Confirmed </th>
+          <td mat-cell *matCellDef="let reservation"> {{ reservation.isConfirmed ? 'Yes' : 'No' }} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="['id', 'idMembre', 'idSpace', 'start_time', 'end_time', 'isConfirmed']"></tr>
+        <tr mat-row *matRowDef="let row; columns: ['id', 'idMembre', 'idSpace', 'start_time', 'end_time', 'isConfirmed']"></tr>
+      </table>
+    </div>
+  </div>
+</div>

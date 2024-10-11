@@ -28,14 +28,21 @@ export class EventRegistrationService {
   public getAllEventRegistration():Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/getAll`, { headers: this.getHeaders() });
   }
-  public getAllEventRegistrationByIdEvent(id:number):Observable<any> {
+  public getAllEventRegistrationByIdEvent(id: string):Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/getAllEventRegistrationByIdEvent/${id}`, { headers: this.getHeaders() });
   }
-  public saveEvent(eventRegistration:EventRegistration): Observable<any> {
+  public reserveEvent(eventRegistration:EventRegistration): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/save`,eventRegistration, { headers: this.getHeaders() });
   }
-  public confirmRegistration(id:number): Observable<any> {
+  public confirmRegistration(id: number | undefined): Observable<any> {
     return this.http.put<any>(`${this.apiUrl}/confirmRegistration/${id}`,null, { headers: this.getHeaders() });
   }
 
+  public cancelRegistration(id: number | undefined) {
+    return this.http.put<any>(`${this.apiUrl}/cancelRegistration/${id}`,null, { headers: this.getHeaders() });
+  }
+
+  getEventsByIdMember(id: number) {
+    return this.http.get<any>(`${this.apiUrl}/getEventsByIdMember/${id}`, { headers: this.getHeaders() });
+  }
 }

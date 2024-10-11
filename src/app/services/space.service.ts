@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {Space} from "../models/space";
 
 @Injectable({
   providedIn: 'root'
@@ -28,16 +29,16 @@ export class SpaceService {
     return this.http.get<any>(`${this.apiUrl}/getAll`, { headers: this.getHeaders() });
   }
 
-  public getSpaceById(id:number):Observable<any> {
+  public getSpaceById(id: string | null):Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/getById/${id}`, { headers: this.getHeaders() });
   }
 
-  public saveSpace(event:Event): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/save`,event, { headers: this.getHeaders() });
+  public saveSpace(space:Space): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/save`,space, { headers: this.getHeaders() });
   }
 
-  public updateSpace(event:Event): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/update`,event, { headers: this.getHeaders() });
+  public updateSpace(space:Space): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/update`,space, { headers: this.getHeaders() });
   }
 
   public deleteSpace(id: number | undefined): Observable<any> {

@@ -1,0 +1,45 @@
+<div class="container mt-2">
+  <h2>{{ isCreateMode ? 'Create a Space' : 'Update a Space' }}</h2>
+
+  <form [formGroup]="spaceForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="name" class="form-label">Name</label>
+      <input id="name" formControlName="name" type="text" class="form-control" placeholder="Enter space name">
+      <div *ngIf="spaceForm.get('name')?.invalid && spaceForm.get('name')?.touched" class="text-danger">
+        Name is required.
+      </div>
+    </div>
+
+    <div class="form-group mt-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea id="description" formControlName="description" rows="3" class="form-control" placeholder="Enter description"></textarea>
+      <div *ngIf="spaceForm.get('description')?.invalid && spaceForm.get('description')?.touched" class="text-danger">
+        Description is required.
+      </div>
+    </div>
+
+    <div class="form-group mt-3">
+      <label for="picture" class="form-label">Picture URL</label>
+      <input id="picture" formControlName="picture" type="text" class="form-control" placeholder="Enter picture URL">
+      <div *ngIf="spaceForm.get('picture')?.invalid && spaceForm.get('picture')?.touched" class="text-danger">
+        Picture URL is required.
+      </div>
+    </div>
+
+    <div class="form-group mt-3">
+      <label for="price_per_day" class="form-label">Price Per Day</label>
+      <input id="price_per_day" formControlName="price_per_day" type="text" class="form-control" placeholder="Enter price per day">
+      <div *ngIf="spaceForm.get('price_per_day')?.invalid && spaceForm.get('price_per_day')?.touched" class="text-danger">
+        Please enter a valid price.
+      </div>
+    </div>
+    <p *ngIf="message" class="message success-message">{{ message }}</p>
+
+    <button type="submit" class="btn btn-primary mt-3" [disabled]="spaceForm.invalid">{{ isCreateMode ? 'Create' : 'Update' }}</button>
+
+
+    <button type="button" class="btn btn-secondary mt-3 ms-2" routerLink="/admin/spaces/ourSpaces/">Return</button>
+
+  </form>
+</div>

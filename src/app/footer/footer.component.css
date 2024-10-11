@@ -5,15 +5,15 @@
 .social-icons mat-icon {
   font-size: 36px;
   margin-right: 15px;
-  color: #3b5998; /* Facebook Color */
+  color: #3b5998;
 }
 
 .social-icons mat-icon:nth-child(2) {
-  color: #E1306C; /* Instagram Color */
+  color: #E1306C;
 }
 
 .social-icons mat-icon:nth-child(3) {
-  color: #1DA1F2; /* Twitter Color */
+  color: #1DA1F2;
 }
 
 .address, .contact-info div {

@@ -1,0 +1,33 @@
+.custom-card {
+  transition: box-shadow 0.3s ease-in-out;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.custom-card:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,.3);
+}
+
+mat-card-header {
+  padding: 16px;
+}
+
+mat-icon {
+  font-size: 24px;
+  height: 24px;
+  width: 24px;
+}
+
+.card-text {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.card-img {
+  object-fit: cover;
+  height: 200px;
+}
+
+mat-card-content {
+  flex-grow: 1;
+}

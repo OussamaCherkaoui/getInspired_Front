@@ -28,7 +28,7 @@ export class EventService {
     return this.http.get<any>(`${this.apiUrl}/getAll`);
   }
 
-  public getEventById(id:number):Observable<any> {
+  public getEventById(id: string):Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/getById/${id}`, { headers: this.getHeaders() });
   }
 
@@ -45,5 +45,9 @@ export class EventService {
   }
   public countEvent(): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/countEvent`, { headers: this.getHeaders() });
+  }
+
+  public getAllByDate(searchDate: Date) {
+    return this.http.get<any>(`${this.apiUrl}/getAllByDate/${searchDate}`,{ headers: this.getHeaders() });
   }
 }

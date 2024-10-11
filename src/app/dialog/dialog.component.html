@@ -1,0 +1,8 @@
+<h2>Send Notification to {{ data.username }}</h2>
+<div class="chat-box">
+  <textarea [(ngModel)]="notification" placeholder="notification"></textarea>
+</div>
+<div class="actions">
+  <button mat-raised-button color="primary" (click)="sendNotification()">Envoyer</button>
+  <button mat-raised-button color="warn" (click)="closeDialog()">Annuler</button>
+</div>

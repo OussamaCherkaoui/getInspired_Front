@@ -1,4 +1,4 @@
-<nav mat-toolbar *ngIf="!(isActive('/logIn')||isActive('/signUp')||isActive('/admin/dashboard'))">
+<nav mat-toolbar *ngIf="!verifyUrl(this.router.url)">
   <div class="logo">
     <img ngSrc="./assets/pictures/logo.png" priority alt="Logo" height="80" width="80"/>
   </div>

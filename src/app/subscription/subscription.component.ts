@@ -17,6 +17,11 @@ import {Subscription} from "../models/subscription";
 import {SubscriptionService} from "../services/subscription.service";
 import {UserService} from "../services/user.service";
 import {DecodejwtService} from "../services/decodejwt.service";
+import {Role} from "../models/role";
+import {Router} from "@angular/router";
+import {ConfirmationDialogComponent} from "../confirmation-dialog/confirmation-dialog.component";
+import {DialogComponent} from "../dialog/dialog.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-subscription',
@@ -52,40 +57,73 @@ export class SubscriptionComponent implements OnInit{
   membreId:number=0;
   subscriptionType: string = '';
   startDate: Date | null = null;
+  username: string="";
+  isLoggedIn: boolean=false;
+  isAdmin: boolean=false;
 
-  constructor(private subscriptionService:SubscriptionService,private decodeService:DecodejwtService) {
+  constructor(private subscriptionService:SubscriptionService,private router: Router, private authService: UserService,private decodeJwt: DecodejwtService,private dialog:MatDialog) {
 
   }
   ngOnInit() {
-    this.decodeService.getIdByUsername().subscribe(data=>{
+    this.decodeJwt.getIdByUsername().subscribe(data=>{
       this.membreId=data;
     });
+  }
+  verifyAuth(){
+    this.authService.isLoggedIn.subscribe(
+      (loggedIn: boolean) => {
+        if (loggedIn)
+        {
+          this.username=this.decodeJwt.getUsernameFromToken();
+          this.isLoggedIn = loggedIn;
+          if(this.decodeJwt.getRoleFromToken()===Role.ADMIN){
+            this.isAdmin=true;
+          }
+        }
+      }
+    );
   }
 
   // Fonction appelée lorsqu'on clique sur le bouton "Subscribe"
   subscribe() {
-    if (this.subscriptionType && this.startDate) {
-      this.subscription.start_date=this.startDate;
-      this.subscription.type=this.subscriptionType;
-      this.subscription.idMembre=this.membreId;
-      console.log('Subscription Type:', this.subscriptionType);
-      console.log('Start Date:', this.startDate);
-      if(this.subscriptionType=='monthly')
-      {
-        let startDate = new Date(this.startDate);
-        startDate.setMonth(startDate.getMonth() + 1);
-        this.subscription.end_date=startDate;
+    this.verifyAuth();
+    if (!this.isLoggedIn)
+    {
+      this.router.navigate(['/logIn']);
+    }
+    else if (this.isAdmin)
+    {
+      alert("You Are Admin , You Can' t subscribe !!")
+    }
+    else{
+      if (this.subscriptionType && this.startDate) {
+        this.subscription.start_date=this.startDate;
+        this.subscription.type=this.subscriptionType;
+        this.subscription.idMembre=this.membreId;
+        console.log('Subscription Type:', this.subscriptionType);
+        console.log('Start Date:', this.startDate);
+        if(this.subscriptionType=='monthly')
+        {
+          let startDate = new Date(this.startDate);
+          startDate.setMonth(startDate.getMonth() + 1);
+          this.subscription.end_date=startDate;
+        }
+        else{
+          let startDate = new Date(this.startDate);
+          startDate.setFullYear(startDate.getFullYear() + 1);
+          this.subscription.end_date=startDate;
+        }
+        this.subscriptionService.saveSubscription(this.subscription).subscribe(data=>{
+          const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+            width: '300px',
+            data: { message: "Votre demande d' abonnement a été enregistrée avec succès." ,username:this.username},
+            disableClose: true,
+            panelClass: 'custom-dialog-container',
+          });
+        });
+      } else {
+        alert('Veuillez sélectionner le type d\'abonnement et la date de début.');
       }
-      else{
-        let startDate = new Date(this.startDate);
-        startDate.setFullYear(startDate.getFullYear() + 1);
-        this.subscription.end_date=startDate;
-      }
-      this.subscriptionService.saveSubscription(this.subscription).subscribe(data=>{
-        console.log(data);
-      });
-    } else {
-      alert('Veuillez sélectionner le type d\'abonnement et la date de début.');
     }
   }
 }

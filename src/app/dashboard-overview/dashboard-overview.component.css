@@ -11,19 +11,19 @@
 }
 
 .users-card {
-  background-color: #3f51b5; /* Couleur pour Utilisateurs */
+  background-color: #3f51b5;
 }
 
 .subscription-card {
-  background-color: #f44336; /* Couleur pour Abonnements */
+  background-color: #f44336;
 }
 
 .events-card {
-  background-color: #4caf50; /* Couleur pour Événements */
+  background-color: #4caf50;
 }
 
 .spaces-card {
-  background-color: #ff9800; /* Couleur pour Espaces */
+  background-color: #ff9800;
 }
 
 .mat-card-header mat-icon {

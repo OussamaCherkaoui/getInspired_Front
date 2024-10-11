@@ -34,7 +34,7 @@ export class AdminComponent implements OnInit{
     { icon: 'home', text: 'Home', link: '/' },
     { icon: 'spaces', text: 'Spaces', link: '/admin/spaces' },
     { icon: 'events', text: 'Events', link: '/admin/events' },
-    { icon: 'subscriptions', text: 'Subscriptions', link: '/admin/subscription' }
+    { icon: 'subscriptions', text: 'Subscriptions', link: '/admin/subscriptions' }
   ];
 
   isLoggedIn = false;
@@ -60,4 +60,5 @@ export class AdminComponent implements OnInit{
     this.authService.logout();
     this.router.navigateByUrl('/');
   }
+
 }

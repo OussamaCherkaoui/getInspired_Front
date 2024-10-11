@@ -35,9 +35,21 @@ export class ReservationService {
     return this.http.post<any>(`${this.apiUrl}/save`,reservation, { headers: this.getHeaders() });
   }
   public cancelReservation(id: number | undefined): Observable<any> {
-    return this.http.delete<any>(`${this.apiUrl}/cancelReservation/${id}`, { headers: this.getHeaders() });
+    return this.http.put<any>(`${this.apiUrl}/cancelReservation/${id}`,null,{ headers: this.getHeaders() });
   }
   public confirmReservation(id:number): Observable<any> {
     return this.http.put<any>(`${this.apiUrl}/confirmReservation/${id}`,null, { headers: this.getHeaders() });
+  }
+
+  public getReservationsByDate(searchDate: string) {
+    return this.http.get<any>(`${this.apiUrl}/getAllByDate/${searchDate}`, { headers: this.getHeaders() });
+  }
+
+  public getUpcomingReservations() {
+    return this.http.get<any>(`${this.apiUrl}/getUpcomingReservations`, { headers: this.getHeaders() });
+  }
+
+  public getReservationsByIdMember(id:number) {
+    return this.http.get<any>(`${this.apiUrl}/getAllByIdMember/${id}`, { headers: this.getHeaders() });
   }
 }

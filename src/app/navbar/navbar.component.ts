@@ -24,8 +24,22 @@ import {Role} from "../models/role";
 export class NavbarComponent implements OnInit {
   isLoggedIn = false;
   isAdmin=false;
+  excludedRoutes: string[] = [
+    '/logIn',
+    '/signUp',
+    '/admin/dashboard',
+    '/admin/events',
+    '/admin/events/addEvent',
+    '/admin/spaces',
+    '/admin/spaces/ourSpaces',
+    '/admin/spaces/reservations',
+    '/admin/spaces/ourSpaces/addSpace',
+    '/admin/spaces/ourSpaces/updateSpace/id',
+    '/admin/subscriptions'
+  ];
 
-  constructor(private router: Router, private authService: UserService,private decodeJwt: DecodejwtService) { }
+
+  constructor(protected router: Router, private authService: UserService,private decodeJwt: DecodejwtService) { }
 
   ngOnInit(): void {
     this.authService.isLoggedIn.subscribe(
@@ -63,6 +77,18 @@ export class NavbarComponent implements OnInit {
     this.isLoggedIn=false;
     this.authService.logout();
     this.router.navigateByUrl('/');
+  }
+
+  verifyUrl(url: string): boolean {
+    if (this.excludedRoutes.includes(url)) {
+      return true;
+    }
+
+    // Vérification pour la route dynamique 'updateSpace' avec un ID
+    const updateSpaceRegex = /^\/admin\/spaces\/ourSpaces\/updateSpace\/\d+$/;
+    const updateEventRegex = /^\/admin\/events\/updateEvent\/\d+$/;
+    const registrationEventRegex = /^\/admin\/events\/reservations\/\d+$/;
+    return updateSpaceRegex.test(url) || updateEventRegex.test(url)||registrationEventRegex.test(url);
   }
 
   isActive(url: string): boolean {

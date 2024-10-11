@@ -27,4 +27,8 @@ export class SubscriptionHistoryService {
   public getSubscriptionHistoryByIdMembre(id:number):Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/getSubscriptionHistoryByIdMembre/${id}`, { headers: this.getHeaders() });
   }
+
+  public getSubscriptionHistoryByIdSubscription(id: number) {
+    return this.http.get<any>(`${this.apiUrl}/getSubscriptionHistoryByIdSubscription/${id}`, { headers: this.getHeaders() });
+  }
 }

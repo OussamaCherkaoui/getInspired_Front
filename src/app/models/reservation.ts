@@ -1,7 +1,7 @@
 export class Reservation {
   id?: number;
-  start_time?:string;
-  end_time?:string;
+  start_time?:Date;
+  end_time?:Date;
   isConfirmed: boolean | undefined;
   idMembre?: number;
   idSpace?: number;

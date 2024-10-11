@@ -1,7 +1,7 @@
 .user-view {
   position: relative;
   overflow: hidden;
-  background-color: #000000; /* Indigo */
+  background-color: #000000;
   color: white;
   padding: 20px;
   border-bottom: 2px solid rgba(255, 255, 255, 0.1);
@@ -42,12 +42,12 @@ h6 {
 
 .sidenav-container {
   height: 100vh;
-  background-color: #f4f4f4; /* Darker indigo for contrast */
+  background-color: #f4f4f4;
 }
 
 mat-sidenav {
   width: 250px;
-  background-color: #ffffff; /* A more vibrant indigo for the sidebar */
+  background-color: #ffffff;
 }
 
 img.rounded-circle {
