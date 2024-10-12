@@ -16,6 +16,8 @@ import {FormSpaceComponent} from "./form-space/form-space.component";
 import {FormEventComponent} from "./form-event/form-event.component";
 import {RegistrationEventAdminComponent} from "./registration-event-admin/registration-event-admin.component";
 import {HistorySubscriptionAdminComponent} from "./history-subscription-admin/history-subscription-admin.component";
+import {UnauthorizedComponent} from "./unauthorized/unauthorized.component";
+import {adminGuard} from "./guards/admin.guard";
 
 export const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -69,8 +71,13 @@ export const routes: Routes = [
         path: 'subscriptions',
         component: SubscriptionAdminComponent
       },
-    ]},
+    ],
+    canActivate: [adminGuard]},
   {path:'spaces',component:SpacesComponent},
   {path:'events',component:EventsComponent},
   {path:'subscription',component:SubscriptionComponent},
+  {
+    path: 'unauthorized',
+    component: UnauthorizedComponent
+  },
 ];
