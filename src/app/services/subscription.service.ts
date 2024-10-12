@@ -109,4 +109,8 @@ export class SubscriptionService {
         })
       );
   }
+
+  public getSubscriptionByIdMember(id:number) {
+    return this.http.get<any>(`${this.apiUrl}/getAllByIdMember/${id}`, { headers: this.getHeaders() });
+  }
 }

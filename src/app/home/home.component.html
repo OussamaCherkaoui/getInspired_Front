@@ -10,10 +10,8 @@
 </div>
 
 <!-- //////////////////////////////////////////////////////////////////////////// -->
-<div class="custom-card-section w-100" id="custom-card-section">
-  <div class="row w-100">
-    <div class="col-md-3">
-      <mat-card class="custom-card with-bg">
+<div class="custom-card-section row w-100 flex-wrap w-100" id="custom-card-section">
+      <mat-card class="col-md-3 custom-card with-bg">
         <img mat-card-image src="/assets/pictures/privateOffice.jpg" alt="Photo 1">
         <mat-card-content>
           <h5 class="custom-card-title">Private Office</h5>
@@ -21,10 +19,8 @@
           <p class="custom-card-price">From $20.00/DAY</p>
         </mat-card-content>
       </mat-card>
-    </div>
 
-    <div class="col-md-3">
-      <mat-card class="custom-card">
+      <mat-card class="col-md-3 custom-card">
         <img mat-card-image src="/assets/pictures/conferenceRoom.jpg" alt="Photo 2">
         <mat-card-content>
           <h5 class="custom-card-title">Conference Room</h5>
@@ -32,10 +28,8 @@
           <p class="custom-card-price">From $30.00/DAY</p>
         </mat-card-content>
       </mat-card>
-    </div>
 
-    <div class="col-md-3">
-      <mat-card class="custom-card with-bg">
+      <mat-card class="col-md-3 custom-card with-bg">
         <img mat-card-image src="/assets/pictures/openWorkSpace.jpg" alt="Photo 3">
         <mat-card-content>
           <h5 class="custom-card-title">Open Workspace</h5>
@@ -43,10 +37,8 @@
           <p class="custom-card-price">From $15.00/DAY</p>
         </mat-card-content>
       </mat-card>
-    </div>
 
-    <div class="col-md-3">
-      <mat-card class="custom-card">
+      <mat-card class="col-md-3 custom-card">
         <img mat-card-image src="/assets/pictures/loungeArea.jpg" alt="Photo 4">
         <mat-card-content>
           <h5 class="custom-card-title">Lounge Area</h5>
@@ -54,8 +46,6 @@
           <p class="custom-card-price">From $15.00/DAY</p>
         </mat-card-content>
       </mat-card>
-    </div>
-  </div>
 </div>
 
 <!-- //////////////////////////////////////////////////////////////////////////// -->
@@ -77,13 +67,13 @@
 <!-- //////////////////////////////////////////////////////////////////////////// -->
 
 
-<div class="event-section m-0 mt-5 w-100">
+<div class="event-section m-0 mt-3 w-100">
   <h6 class="text-center text-danger">Event Get Inspired</h6>
   <h5 class="text-center mt-3 fw-bold" >Don't miss out on these exciting events! Stay tuned for more updates.</h5>
 
-  <div class="row card-event-section w-100 d-flex align-items-center justify-content-center ">
-    <div class="col-md-4" *ngFor="let event of events">
-      <mat-card class="event-card">
+  <div class="row card-event-section  w-100  flex-wrap">
+    <div class="col-md-4 d-flex align-items-center justify-content-center" *ngFor="let event of events">
+      <mat-card class="event-card mt-2">
         <img mat-card-image [src]="event.picture" alt="{{ event.name }}" height="200" width="100%">
         <mat-card-content style="height: 300px">
           <p class="event-card-date mt-2" style="color: #B4B4B4">{{ event.date | date:'dd MMMM yyyy' }}</p>
@@ -106,7 +96,7 @@
 <!-- //////////////////////////////////////////////////////////////////////////// -->
 
 <div class="w-100" style="background-color: #F0F0F0">
-  <div class="row align-items-center p-0 m-0 w-100">
+  <div class="row flex-wrap align-items-center p-0 m-0 w-100">
 
     <div class="col-lg-7 d-flex flex-column gap-4 p-5">
       <h5 class="subscription-title fw-normal">Subscription</h5>

@@ -22,6 +22,8 @@ import {Router} from "@angular/router";
 import {ConfirmationDialogComponent} from "../confirmation-dialog/confirmation-dialog.component";
 import {DialogComponent} from "../dialog/dialog.component";
 import {MatDialog} from "@angular/material/dialog";
+import {UserReservationsSpaceComponent} from "../user-reservations-space/user-reservations-space.component";
+import {UserSubscriptionDetailsComponent} from "../user-subscription-details/user-subscription-details.component";
 
 @Component({
   selector: 'app-subscription',
@@ -65,15 +67,16 @@ export class SubscriptionComponent implements OnInit{
 
   }
   ngOnInit() {
-    this.decodeJwt.getIdByUsername().subscribe(data=>{
-      this.membreId=data;
-    });
+    this.verifyAuth();
   }
   verifyAuth(){
     this.authService.isLoggedIn.subscribe(
       (loggedIn: boolean) => {
         if (loggedIn)
         {
+          this.decodeJwt.getIdByUsername().subscribe(data=>{
+            this.membreId=data;
+          });
           this.username=this.decodeJwt.getUsernameFromToken();
           this.isLoggedIn = loggedIn;
           if(this.decodeJwt.getRoleFromToken()===Role.ADMIN){
@@ -84,7 +87,6 @@ export class SubscriptionComponent implements OnInit{
     );
   }
 
-  // Fonction appelée lorsqu'on clique sur le bouton "Subscribe"
   subscribe() {
     this.verifyAuth();
     if (!this.isLoggedIn)
@@ -124,6 +126,23 @@ export class SubscriptionComponent implements OnInit{
       } else {
         alert('Veuillez sélectionner le type d\'abonnement et la date de début.');
       }
+    }
+  }
+
+  getSubscriptionDetails() {
+    if (!this.isLoggedIn)
+    {
+      this.router.navigate(['/logIn']);
+    }
+    else if (this.isAdmin)
+    {
+      alert("You Are Admin , You dont have subscription !!")
+    }
+    else{
+      const dialogRef = this.dialog.open(UserSubscriptionDetailsComponent, {
+        width: '700px',
+        data: { memberId: this.membreId }
+      });
     }
   }
 }

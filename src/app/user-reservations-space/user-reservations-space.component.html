@@ -15,17 +15,17 @@
 
     <ng-container matColumnDef="date">
       <th mat-header-cell *matHeaderCellDef> Date </th>
-      <td mat-cell *matCellDef="let reservation"> {{reservation.date | date:'dd/MM/yyyy'}} </td>
+      <td mat-cell *matCellDef="let reservation"> {{reservation.start_time | date:'dd/MM/yyyy'}} </td>
     </ng-container>
 
     <ng-container matColumnDef="startTime">
       <th mat-header-cell *matHeaderCellDef> Heure de début </th>
-      <td mat-cell *matCellDef="let reservation"> {{reservation.startTime}} </td>
+      <td mat-cell *matCellDef="let reservation"> {{reservation.start_time | date:'HH:mm'}} </td>
     </ng-container>
 
     <ng-container matColumnDef="endTime">
       <th mat-header-cell *matHeaderCellDef> Heure de fin </th>
-      <td mat-cell *matCellDef="let reservation"> {{reservation.endTime}} </td>
+      <td mat-cell *matCellDef="let reservation"> {{reservation.end_time | date:'HH:mm'}} </td>
     </ng-container>
 
     <ng-container matColumnDef="status">

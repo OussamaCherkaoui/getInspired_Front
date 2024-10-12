@@ -91,11 +91,10 @@
   text-align: center;
   display: flex;
   align-items:center;
-  justify-content: center;
+  justify-content: space-evenly;
   align-content: center;
   flex-direction: column;
   margin: 0 auto;
-  gap: 30px;
 }
 
 
@@ -110,7 +109,7 @@
 }
 
 .description {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 100;
 }
 
@@ -156,10 +155,6 @@
 }
 
 .card-event-section{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
   margin-top: 30px;
   width: 100%;
 }

@@ -52,4 +52,9 @@ export class ReservationService {
   public getReservationsByIdMember(id:number) {
     return this.http.get<any>(`${this.apiUrl}/getAllByIdMember/${id}`, { headers: this.getHeaders() });
   }
+
+  public deleteReservation(id: number) {
+    return this.http.delete<any>(`${this.apiUrl}/deleteReservation/${id}`,{ headers: this.getHeaders() });
+  }
+
 }

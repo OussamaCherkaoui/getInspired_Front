@@ -51,8 +51,8 @@ import {ReservationService} from "../services/reservation.service";
 })
 export class UserReservationsSpaceComponent implements OnInit{
   reservations: Reservation[] = [];
-  id:number=0;
   displayedColumns: string[] = ['name', 'picture', 'date', 'startTime', 'endTime', 'status', 'actions'];
+  memberId!:number;
 
   constructor(
     private dialogRef: MatDialogRef<UserReservationsSpaceComponent>,
@@ -61,24 +61,29 @@ export class UserReservationsSpaceComponent implements OnInit{
   ) {}
 
   ngOnInit() {
-    this.loadReservations(this.id);
+    this.memberId=this.data.memberId;
+    this.loadReservations(this.data.memberId);
   }
 
   loadReservations(id:number) {
     this.reservationService.getReservationsByIdMember(id).subscribe(
       (data: Reservation[]) => {
-        this.reservations = data;
+        if(data){
+          this.reservations = data;
+        }
+        else {
+          this.reservations=[];
+        }
       }
     );
   }
 
   cancelReservation(id: number) {
-    this.reservationService.cancelReservation(id).subscribe(
-      () => {
-        this.loadReservations(id); // Recharger les réservations après l'annulation
-      },
-      error => {
-        console.error('Erreur lors de l\'annulation de la réservation', error);
+    this.reservationService.deleteReservation(id).subscribe(
+      data => {
+        if(data) {
+          this.loadReservations(this.memberId);
+        }
       }
     );
   }

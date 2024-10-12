@@ -42,7 +42,12 @@ export class EventRegistrationService {
     return this.http.put<any>(`${this.apiUrl}/cancelRegistration/${id}`,null, { headers: this.getHeaders() });
   }
 
-  getEventsByIdMember(id: number) {
-    return this.http.get<any>(`${this.apiUrl}/getEventsByIdMember/${id}`, { headers: this.getHeaders() });
+  public getEventsRegistrationsByIdMember(id: number) {
+    return this.http.get<any>(`${this.apiUrl}/getEventsRegistrationsByIdMember/${id}`, { headers: this.getHeaders() });
+  }
+
+  public deleteRegistration(id: number) {
+    return this.http.delete<any>(`${this.apiUrl}/deleteRegistration/${id}` , { headers: this.getHeaders() });
+
   }
 }

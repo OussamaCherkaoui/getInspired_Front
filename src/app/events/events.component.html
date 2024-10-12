@@ -32,12 +32,12 @@
 <div class="white-section mat-elevation-z2 p-3">
   <h2 class="text-center m-5 section-title">Explore Spaces Tailored Just for You</h2>
   <div class="row card-event-section">
-    <div class="col-md-4 mb-3" *ngFor="let event of pagedEvents">
+    <div class="col-md-4 mb-3 d-flex align-items-center justify-content-center" *ngFor="let event of pagedEvents">
       <mat-card class="event-card">
         <img mat-card-image [src]="event.picture" alt="{{ event.name }}" height="200" width="100%">
         <mat-card-content style="height: 300px">
-          <p class="event-card-date" style="color: #B4B4B4">{{ event.date | date:'dd MMMM yyyy' }}</p>
-          <p class="event-card-title">{{ event.name }}</p>
+          <p class="event-card-date mt-2" style="color: #B4B4B4">{{ event.date | date:'dd MMMM yyyy' }}</p>
+          <p class="event-card-title fw-bold">{{ event.name }}</p>
           <p class="event-card-description">{{ event.description }}</p>
         </mat-card-content>
         <mat-card-actions>
@@ -54,8 +54,8 @@
     </div>
   </div>
 
-  <div class="d-flex justify-content-center mt-4">
-    <mat-paginator style="background-color: #ffffff;color: #000000;border-radius: 12px;padding: 5px 20px;margin-bottom: 20px;font-size: 18px;font-weight: bold" [length]="events.length" [pageSize]="6" (page)="onPageChange($event)">
+  <div class="d-flex align-items-center mt-4">
+    <mat-paginator class="d-flex align-items-center" style="background-color: #ffffff;color: #000000;border-radius: 12px;padding: 5px 20px;margin-bottom: 20px;font-size: 18px;font-weight: bold;" [length]="events.length" [pageSize]="6" (page)="onPageChange($event)">
     </mat-paginator>
   </div>
 </div>

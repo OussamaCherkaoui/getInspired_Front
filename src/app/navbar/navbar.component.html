@@ -1,23 +1,37 @@
-<nav mat-toolbar *ngIf="!verifyUrl(this.router.url)">
+<nav *ngIf="!verifyUrl(this.router.url)">
   <div class="logo">
     <img ngSrc="./assets/pictures/logo.png" priority alt="Logo" height="80" width="80"/>
   </div>
-  <div class="links">
-    <a mat-button routerLink="/" [class.active]="isActive('/')">Home</a>
-    <a mat-button routerLink="/spaces" [class.active]="isActive('/spaces')">Spaces</a>
-    <a mat-button routerLink="/events" [class.active]="isActive('/events')">Events</a>
-    <a mat-button routerLink="/subscription" [class.active]="isActive('/subscription')">Subscription</a>
-    <a mat-button *ngIf="isAdmin" routerLink="/admin/dashboard" [class.active]="isActive('/admin/dashboard')">administration</a>
-  </div>
-  <div class="auth" *ngIf="!isLoggedIn">
-    <a mat-button routerLink="/logIn">Login<mat-icon>login</mat-icon></a>
-    <a mat-button routerLink="/signUp">Signup<mat-icon>person_add</mat-icon></a>
-  </div>
-  <div class="user-info" *ngIf="isLoggedIn">
-    <a mat-button>
-      <mat-icon>account_circle</mat-icon>
-      <span>{{ username }}</span>
-    </a>
-    <a mat-button (click)="logout()"><mat-icon>logout</mat-icon>Se déconnecter</a>
+
+  <button class="menu-toggle" (click)="toggleMenu()">
+    <span class="material-icons">menu</span>
+  </button>
+
+  <div class="nav-content" [class.active]="isMenuOpen">
+    <div class="links">
+      <a mat-button routerLink="/" [class.active]="isActive('/')" (click)="isMenuOpen=false">Home</a>
+      <a mat-button routerLink="/spaces" [class.active]="isActive('/spaces')" (click)="isMenuOpen=false">Spaces</a>
+      <a mat-button routerLink="/events" [class.active]="isActive('/events')" (click)="isMenuOpen=false">Events</a>
+      <a mat-button routerLink="/subscription" [class.active]="isActive('/subscription')" (click)="isMenuOpen=false">Subscription</a>
+      <a mat-button *ngIf="isAdmin" routerLink="/admin/dashboard" [class.active]="isActive('/admin/dashboard')" (click)="isMenuOpen=false">Administration</a>
+    </div>
+
+    <div class="auth d-flex align-items-center justify-content-center" *ngIf="!isLoggedIn">
+      <a mat-button routerLink="/logIn">
+        <span class="material-icons">login</span> Login
+      </a>
+      <a mat-button routerLink="/signUp">
+        <span class="material-icons">person_add</span> Signup
+      </a>
+    </div>
+
+    <div class="user-info" *ngIf="isLoggedIn">
+      <a mat-button>
+        <span class="material-icons">account_circle</span> {{ username }}
+      </a>
+      <a mat-button (click)="logout()">
+        <span class="material-icons">logout</span> Se déconnecter
+      </a>
+    </div>
   </div>
 </nav>

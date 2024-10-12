@@ -1,18 +1,17 @@
-<div class="container">
-  <div class="row">
+<div class="container-fluid signup-container">
+  <div class="row h-100">
     <div class="col-lg-6 d-flex flex-column justify-content-center align-items-center left-section">
       <img src="./assets/pictures/logo.png" alt="Logo" class="logo rounded-4 mb-3">
-      <h2>Welcome to GetInspired</h2>
-      <p>Sign up to explore and manage your events easily.</p>
+      <h2 class="text-center">Welcome to GetInspired</h2>
+      <p class="text-center">Sign up to explore and manage your events easily.</p>
       <button class="home-button" routerLink="/">Go to Home</button>
     </div>
 
-    <div class="col-lg-6 d-flex justify-content-center align-items-center">
+    <div class="col-lg-6 d-flex justify-content-center align-items-center right-section">
       <div class="sign-up-container">
-        <h2 class="sign-up-title">Create an Account</h2>
+        <h2 class="sign-up-title text-center mb-4">Create an Account</h2>
         <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()" class="sign-up-form">
-          <!-- Username Field -->
-          <mat-form-field appearance="fill" class="full-width">
+          <mat-form-field appearance="fill" class="w-100 mb-3">
             <mat-label>Username</mat-label>
             <input matInput formControlName="username" required />
             <mat-error *ngIf="signUpForm.get('username')?.hasError('required')">
@@ -20,8 +19,7 @@
             </mat-error>
           </mat-form-field>
 
-          <!-- Email Field -->
-          <mat-form-field appearance="fill" class="full-width">
+          <mat-form-field appearance="fill" class="w-100 mb-3">
             <mat-label>Email</mat-label>
             <input matInput formControlName="email" type="email" required />
             <mat-error *ngIf="signUpForm.get('email')?.hasError('required')">
@@ -32,7 +30,7 @@
             </mat-error>
           </mat-form-field>
 
-          <mat-form-field appearance="fill" class="full-width">
+          <mat-form-field appearance="fill" class="w-100 mb-3">
             <mat-label>Password</mat-label>
             <input matInput formControlName="password" type="password" required />
             <mat-error *ngIf="signUpForm.get('password')?.hasError('required')">
@@ -43,7 +41,7 @@
             </mat-error>
           </mat-form-field>
 
-          <mat-form-field appearance="fill" class="full-width">
+          <mat-form-field appearance="fill" class="w-100 mb-3">
             <mat-label>Phone</mat-label>
             <input matInput formControlName="phone" required />
             <mat-error *ngIf="signUpForm.get('phone')?.hasError('required')">
@@ -54,13 +52,13 @@
             </mat-error>
           </mat-form-field>
 
-          <span *ngIf="error" class="error">{{ error }}</span>
-          <span *ngIf="message" class="message">{{ message }}</span>
+          <p *ngIf="error" class="error-message">{{ error }}</p>
+          <p *ngIf="message" class="success-message">{{ message }}</p>
 
-          <button mat-raised-button style="background-color: black;color: white" type="submit">Sign Up</button>
+          <button mat-raised-button class="signup-button w-100 mb-3" type="submit">Sign Up</button>
         </form>
         <div class="login text-center">
-          <span>Don't have an account? <a class="text-primary cursor-pointer" routerLink="/logIn">Log In</a></span>
+          <span>Already have an account? <a class="text-primary cursor-pointer" routerLink="/logIn">Log In</a></span>
         </div>
       </div>
     </div>

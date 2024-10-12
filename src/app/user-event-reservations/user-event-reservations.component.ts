@@ -23,6 +23,7 @@ import {Reservation} from "../models/reservation";
 import {EventRegistrationService} from "../services/event-registration.service";
 import {EventRegistration} from "../models/event-registration";
 import {MatTooltip} from "@angular/material/tooltip";
+import {Registration} from "../models/registration";
 
 @Component({
   selector: 'app-user-event-reservations',
@@ -53,8 +54,8 @@ import {MatTooltip} from "@angular/material/tooltip";
   styleUrl: './user-event-reservations.component.css'
 })
 export class UserEventReservationsComponent implements OnInit{
-  reservations: Reservation[] = [];
-  displayedColumns: string[] = ['name', 'date', 'status', 'actions'];
+  reservations: Registration[] = [];
+  displayedColumns: string[] = ['name','picture', 'date', 'status', 'actions'];
 
   constructor(
     private dialogRef: MatDialogRef<UserEventReservationsComponent>,
@@ -67,18 +68,21 @@ export class UserEventReservationsComponent implements OnInit{
   }
 
   loadReservations() {
-    this.eventRegistrationService.getEventsByIdMember(this.data.memberId).subscribe(
+    this.eventRegistrationService.getEventsRegistrationsByIdMember(this.data.memberId).subscribe(
       (data: EventRegistration[]) => {
+        console.log(data)
         this.reservations = data;
       }
     );
   }
 
   cancelReservation(id: number) {
-    this.eventRegistrationService.cancelRegistration(id).subscribe(
+    this.eventRegistrationService.deleteRegistration(id).subscribe(
       data => {
-        console.log(data);
-        this.loadReservations(); // Recharger les réservations après l'annulation
+        if(data)
+        {
+          this.loadReservations();
+        }
       }
     );
   }

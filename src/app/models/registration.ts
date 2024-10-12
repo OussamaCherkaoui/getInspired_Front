@@ -3,6 +3,8 @@ export class Registration {
   username?: string;
   nameEvent?: string;
   isConfirmed?: boolean;
+  picture?:string;
+  date?:string;
 
   constructor(data?: Partial<Registration>) {
     if (data) {
@@ -10,6 +12,8 @@ export class Registration {
       this.username = data.username;
       this.nameEvent = data.nameEvent;
       this.isConfirmed = data.isConfirmed;
+      this.picture=data.picture;
+      this.date = data.date;
     }
   }
 }

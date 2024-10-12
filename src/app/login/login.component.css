@@ -1,21 +1,27 @@
-.container {
-  max-width: 100%;
+.admin-login-container {
   height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow-y: auto;
+}
+
+.row {
+  min-height: 100%;
 }
 
 .left-section {
   background-color: #f4f4f4;
   padding: 2rem;
   text-align: center;
-  border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.right-section {
+  padding: 2rem;
 }
 
 .logo {
   width: 150px;
+  max-width: 100%;
+  height: auto;
 }
 
 h2 {
@@ -44,7 +50,7 @@ p {
   margin-bottom: 1.5rem;
 }
 
-button {
+.login-button {
   width: 100%;
   color: #fff;
   background-color: #009579;
@@ -54,10 +60,9 @@ button {
   transition: background-color 0.4s ease;
 }
 
-button:hover {
+.login-button:hover {
   background-color: #006653;
 }
-
 
 .home-button {
   background-color: black;
@@ -84,3 +89,45 @@ button:hover {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.error-message {
+  color: red;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 991px) {
+  .admin-login-container {
+    height: auto;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+
+  .left-section, .right-section {
+    min-height: 100vh;
+    justify-content: center;
+  }
+
+  .form {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .left-section, .right-section {
+    padding: 1rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+
+  .home-button, .login-button {
+    font-size: 1rem;
+    padding: 10px 16px;
+  }
+}

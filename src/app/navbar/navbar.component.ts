@@ -71,7 +71,11 @@ export class NavbarComponent implements OnInit {
   }
 
   username!:string;
+  isMenuOpen = false;
 
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
 
   logout() {
     this.isLoggedIn=false;
@@ -94,4 +98,5 @@ export class NavbarComponent implements OnInit {
   isActive(url: string): boolean {
     return this.router.url === url;
   }
+
 }

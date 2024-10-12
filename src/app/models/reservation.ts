@@ -5,7 +5,8 @@ export class Reservation {
   isConfirmed: boolean | undefined;
   idMembre?: number;
   idSpace?: number;
-
+  name?:string;
+  picture?:string;
 
   constructor(data?: Partial<Reservation>) {
     if (data) {
