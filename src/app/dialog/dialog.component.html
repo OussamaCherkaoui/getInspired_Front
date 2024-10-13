@@ -1,8 +1,29 @@
-<h2>Send Notification to {{ data.username }}</h2>
-<div class="chat-box">
-  <textarea [(ngModel)]="notification" placeholder="notification"></textarea>
-</div>
-<div class="actions">
-  <button mat-raised-button color="primary" (click)="sendNotification()">Envoyer</button>
-  <button mat-raised-button color="warn" (click)="closeDialog()">Annuler</button>
-</div>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <h2>Send a notification to {{ data.username }}</h2>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form (ngSubmit)="sendNotification()" #notificationForm="ngForm" >
+      <mat-form-field appearance="fill" class="full-width w-100">
+        <mat-label>Your message</mat-label>
+        <textarea matInput [(ngModel)]="notification" name="notification"
+                  placeholder="Enter your notification here"
+                  rows="4" required></textarea>
+        <mat-hint align="end">{{notification.length}} / 500</mat-hint>
+        <mat-error *ngIf="notificationForm.controls['notification']?.invalid">
+          The message is required and should not exceed 500 characters.
+        </mat-error>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-button color="warn" (click)="closeDialog()">Cancel</button>
+    <button mat-raised-button color="primary"
+            [disabled]="!notificationForm.form.valid"
+            (click)="sendNotification()">
+      <mat-icon>send</mat-icon> Send
+    </button>
+  </mat-card-actions>
+</mat-card>

@@ -111,7 +111,7 @@ export class SpacesComponent implements OnInit {
         if (result === true) {
           const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
             width: '300px',
-            data: { message: 'Votre demande de réservation a été enregistrée avec succès.', username:this.username },
+            data: { message: 'Your reservation request has been successfully recorded.', username:this.username },
             disableClose: true,
             panelClass: 'custom-dialog-container',
           });

@@ -1,81 +1,30 @@
-.user-view {
-  position: relative;
-  overflow: hidden;
-  background-color: #000000;
-  color: white;
-  padding: 20px;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-}
-
-.background {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 0;
-  opacity: 0.1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.background-icon {
-  font-size: 200px;
-  color: rgba(255, 255, 255, 0.3);
-}
-
-.user-icon {
-  font-size: 80px;
-  width: 80px;
-  height: 80px;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-}
-
-h6 {
-  position: relative;
-  z-index: 1;
-  font-weight: 600;
-  font-size: 18px;
-}
-
 .sidenav-container {
-  height: 100vh;
-  background-color: #f4f4f4;
+  height: 100%;
 }
 
 mat-sidenav {
   width: 250px;
-  background-color: #ffffff;
 }
 
-img.rounded-circle {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border: 2px solid white;
+mat-toolbar button {
+  margin-right: 16px;
 }
 
-mat-nav-list {
-  padding-top: 0;
+mat-toolbar {
+  display: flex;
+  align-items: center;
 }
 
-mat-nav-list a {
-  color: rgba(255, 255, 255, 0.8) !important;
-  font-weight: 500;
-  transition: background-color 0.3s, color 0.3s;
-  &:hover {
-    color: #fff !important;
-    background-color: rgba(255, 255, 255, 0.1) !important;
-  }
+.mat-sidenav-content {
+  min-height: 100vh;
+}
+.logo {
+  margin-right: 10px;
 }
 
-mat-nav-list a.active {
-  background-color: rgba(255, 255, 255, 0.15) !important;
-  color: white !important;
+.title {
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
 }
 
-mat-divider {
-  background-color: rgba(255, 255, 255, 0.2);
-}

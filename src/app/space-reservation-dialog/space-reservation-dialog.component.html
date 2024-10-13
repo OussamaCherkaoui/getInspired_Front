@@ -1,29 +1,29 @@
-<h2 mat-dialog-title>Réserver un espace</h2>
+<h2 mat-dialog-title>Book a Space</h2>
 <mat-dialog-content>
   <form [formGroup]="reservationForm">
     <mat-form-field appearance="fill">
-      <mat-label>Date de réservation</mat-label>
+      <mat-label>Reservation Date</mat-label>
       <input matInput [matDatepicker]="datePicker" formControlName="date"
              [min]="minDate">
       <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
       <mat-datepicker #datePicker></mat-datepicker>
-      <mat-hint>Sélectionnez une date future</mat-hint>
+      <mat-hint>Select a future date</mat-hint>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label>Heure de début</mat-label>
+      <mat-label>Start Time</mat-label>
       <input matInput type="time" formControlName="startTime">
       <mat-hint>HH:MM</mat-hint>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label>Heure de fin</mat-label>
+      <mat-label>End Time</mat-label>
       <input matInput type="time" formControlName="endTime">
       <mat-hint>HH:MM</mat-hint>
     </mat-form-field>
   </form>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-button (click)="onCancel()">Annuler</button>
-  <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="!reservationForm.valid">Réserver</button>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="!reservationForm.valid">Book</button>
 </mat-dialog-actions>

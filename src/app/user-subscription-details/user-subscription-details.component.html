@@ -1,4 +1,4 @@
-<h2>Détails de l'abonnement</h2>
+<h2>Subscription Details</h2>
 <table mat-table [dataSource]="subscriptions" class="mat-elevation-z8">
   <ng-container matColumnDef="type">
     <th mat-header-cell *matHeaderCellDef> Type </th>
@@ -6,29 +6,29 @@
   </ng-container>
 
   <ng-container matColumnDef="startDate">
-    <th mat-header-cell *matHeaderCellDef> Date de début </th>
+    <th mat-header-cell *matHeaderCellDef> Start Date </th>
     <td mat-cell *matCellDef="let subscription"> {{subscription.start_date | date:'dd/MM/yyyy'}} </td>
   </ng-container>
 
   <ng-container matColumnDef="endDate">
-    <th mat-header-cell *matHeaderCellDef> Date de fin </th>
+    <th mat-header-cell *matHeaderCellDef> End Date </th>
     <td mat-cell *matCellDef="let subscription"> {{subscription.end_date | date:'dd/MM/yyyy'}} </td>
   </ng-container>
 
   <ng-container matColumnDef="status">
-    <th mat-header-cell *matHeaderCellDef> Statut </th>
+    <th mat-header-cell *matHeaderCellDef> Status </th>
     <td mat-cell *matCellDef="let subscription">
-      <mat-icon *ngIf="subscription.isConfirmed" color="primary" matTooltip="Confirmé">check_circle</mat-icon>
-      <mat-icon *ngIf="!subscription.isConfirmed" color="warn" matTooltip="En attente">schedule</mat-icon>
+      <mat-icon *ngIf="subscription.isConfirmed" color="primary" matTooltip="Confirmed">check_circle</mat-icon>
+      <mat-icon *ngIf="!subscription.isConfirmed" color="warn" matTooltip="Pending">schedule</mat-icon>
     </td>
   </ng-container>
 
   <ng-container matColumnDef="notification">
     <th mat-header-cell *matHeaderCellDef> Notification </th>
-    <td mat-cell  *matCellDef="let subscription">
+    <td mat-cell *matCellDef="let subscription">
       <div *ngIf="!subscription.notification" class="no-notification">
         <mat-icon class="no-notification-icon">notifications_off</mat-icon>
-        <span class="no-notification-text">Aucune notification</span>
+        <span class="no-notification-text">No notification</span>
       </div>
       <div *ngIf="subscription.notification">
         {{subscription.notification}}
@@ -40,10 +40,10 @@
     <th mat-header-cell *matHeaderCellDef> Actions </th>
     <td mat-cell *matCellDef="let subscription">
       <button mat-icon-button color="warn" (click)="cancelSubscription(subscription.id)"
-              [disabled]="subscription.isConfirmed" matTooltip="Annuler l'abonnement">
+              [disabled]="subscription.isConfirmed" matTooltip="Cancel subscription">
         <mat-icon>cancel</mat-icon>
       </button>
-      <button mat-icon-button color="accent" (click)="showHistory(subscription.id)" matTooltip="Historique">
+      <button mat-icon-button color="accent" (click)="showHistory(subscription.id)" matTooltip="History">
         <mat-icon>history</mat-icon>
       </button>
     </td>

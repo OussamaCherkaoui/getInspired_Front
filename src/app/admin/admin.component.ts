@@ -1,12 +1,14 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {Router, RouterLink, RouterLinkActive, RouterOutlet} from "@angular/router";
 import {MatDivider} from "@angular/material/divider";
 import {MatIcon} from "@angular/material/icon";
 import {MatListItem, MatNavList} from "@angular/material/list";
 import {MatSidenav, MatSidenavContainer, MatSidenavContent} from "@angular/material/sidenav";
-import {NgForOf, NgOptimizedImage} from "@angular/common";
+import {AsyncPipe, NgForOf, NgIf, NgOptimizedImage} from "@angular/common";
 import {UserService} from "../services/user.service";
 import {DecodejwtService} from "../services/decodejwt.service";
+import {MatToolbar} from "@angular/material/toolbar";
+import {MatIconButton} from "@angular/material/button";
 
 @Component({
   selector: 'app-admin',
@@ -23,7 +25,11 @@ import {DecodejwtService} from "../services/decodejwt.service";
     NgForOf,
     NgOptimizedImage,
     RouterLink,
-    RouterLinkActive
+    RouterLinkActive,
+    AsyncPipe,
+    MatToolbar,
+    MatIconButton,
+    NgIf
   ],
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.css'
@@ -37,28 +43,43 @@ export class AdminComponent implements OnInit{
     { icon: 'subscriptions', text: 'Subscriptions', link: '/admin/subscriptions' }
   ];
 
-  isLoggedIn = false;
+  adminName!: string;
+  isScreenSmall = false;
+  sidenavOpen = true;
 
-  constructor(private router: Router, private authService: UserService,private decodeJwt: DecodejwtService) { }
+  constructor(private router: Router, private authService: UserService, private decodeJwt: DecodejwtService) { }
 
   ngOnInit(): void {
     this.authService.isLoggedIn.subscribe(
       (loggedIn: boolean) => {
-        if (loggedIn)
-        {
+        if (loggedIn) {
           this.adminName = this.decodeJwt.getUsernameFromToken();
-          this.isLoggedIn = loggedIn;
+          this.sidenavOpen = true;
         }
       }
     );
+    this.checkScreenSize();
   }
 
-  adminName!:string;
+  // Gérer le changement de taille d'écran
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.checkScreenSize();
+  }
+
+  checkScreenSize() {
+    this.isScreenSmall = window.innerWidth < 768;
+    this.sidenavOpen = !this.isScreenSmall;
+  }
+
+  closeSidenavOnMobile(sidenav: any) {
+    if (this.isScreenSmall) {
+      sidenav.close();
+    }
+  }
 
   logout() {
-    this.isLoggedIn=false;
     this.authService.logout();
     this.router.navigateByUrl('/');
   }
-
 }

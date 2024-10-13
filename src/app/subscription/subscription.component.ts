@@ -118,13 +118,13 @@ export class SubscriptionComponent implements OnInit{
         this.subscriptionService.saveSubscription(this.subscription).subscribe(data=>{
           const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
             width: '300px',
-            data: { message: "Votre demande d' abonnement a été enregistrée avec succès." ,username:this.username},
+            data: { message: "Your subscription request has been successfully recorded." ,username:this.username},
             disableClose: true,
             panelClass: 'custom-dialog-container',
           });
         });
       } else {
-        alert('Veuillez sélectionner le type d\'abonnement et la date de début.');
+        alert('Please select the subscription type and the start date.');
       }
     }
   }

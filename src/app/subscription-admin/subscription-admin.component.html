@@ -1,159 +1,162 @@
 <div class="container mt-5">
-  <h2 class="mb-4">Abonnements Mensuels</h2>
-  <input type="text" class="form-control mb-3" placeholder="Rechercher par nom d'utilisateur"
+  <h2 class="mb-4">Monthly Subscriptions</h2>
+  <input type="text" class="form-control mb-3" placeholder="Search by username"
          [(ngModel)]="searchMonthly" (input)="filterMonthlySubscriptions()"/>
 
   <div *ngIf="errorMessageMonthly" class="alert alert-danger">
-    {{ errorMessageMonthly}}
+    {{ errorMessageMonthly }}
   </div>
 
-  <table mat-table [dataSource]="monthlySubscriptions" class="table table-hover">
+  <div class="table-responsive">
+    <table mat-table [dataSource]="monthlySubscriptions" class="table table-hover">
+      <ng-container matColumnDef="username">
+        <th mat-header-cell *matHeaderCellDef> Username </th>
+        <td mat-cell *matCellDef="let subscription"> {{ subscription.username }} </td>
+      </ng-container>
 
-    <ng-container matColumnDef="username">
-      <th mat-header-cell *matHeaderCellDef> Username </th>
-      <td mat-cell *matCellDef="let subscription"> {{ subscription.username }} </td>
-    </ng-container>
+      <ng-container matColumnDef="start_date">
+        <th mat-header-cell *matHeaderCellDef> Start Date </th>
+        <td mat-cell *matCellDef="let subscription"> {{ subscription.start_date | date }} </td>
+      </ng-container>
 
-    <ng-container matColumnDef="start_date">
-      <th mat-header-cell *matHeaderCellDef> Start Date </th>
-      <td mat-cell *matCellDef="let subscription"> {{ subscription.start_date | date }} </td>
-    </ng-container>
+      <ng-container matColumnDef="end_date">
+        <th mat-header-cell *matHeaderCellDef> End Date </th>
+        <td mat-cell *matCellDef="let subscription"> {{ subscription.end_date | date }} </td>
+      </ng-container>
 
-    <ng-container matColumnDef="end_date">
-      <th mat-header-cell *matHeaderCellDef> End Date </th>
-      <td mat-cell *matCellDef="let subscription"> {{ subscription.end_date | date }} </td>
-    </ng-container>
+      <ng-container matColumnDef="notification">
+        <th mat-header-cell *matHeaderCellDef> Notification </th>
+        <td mat-cell *matCellDef="let subscription"> {{ subscription.notification }} </td>
+      </ng-container>
 
-    <ng-container matColumnDef="notification">
-      <th mat-header-cell *matHeaderCellDef> Notification </th>
-      <td mat-cell *matCellDef="let subscription">
-        {{ subscription.notification }}
-      </td>
-    </ng-container>
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let subscription">
+          <div class="d-flex flex-column flex-md-row gap-2">
+            <button mat-raised-button style="background-color: #d6ecff;color: black" class="mb-1 mb-md-0 mr-md-2" (click)="openNotificationDialog(subscription)">
+              Send Notification
+            </button>
+            <button mat-raised-button color="warn" class="mb-1 mb-md-0 mr-md-2" (click)="cancelSubscription(subscription.id)">
+              Cancel
+            </button>
+            <button mat-raised-button style="background-color: black;color: white" class="mb-1 mb-md-0" (click)="viewHistory(subscription.id)">
+              View History
+            </button>
+          </div>
+        </td>
+      </ng-container>
 
-    <ng-container matColumnDef="action">
-      <th mat-header-cell *matHeaderCellDef> Actions </th>
-      <td mat-cell *matCellDef="let subscription">
-        <button mat-raised-button color="primary" (click)="openNotificationDialog(subscription)">
-          Envoyer Notification
-        </button>
-        <button mat-raised-button color="warn" (click)="cancelSubscription(subscription.id)">
-          Annuler
-        </button>
-        <button mat-raised-button color="accent" (click)="viewHistory(subscription.id)">
-          Voir Historique
-        </button>
-      </td>
-    </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-
-
-  <h2 class="mt-5 mb-4">Abonnements Annuels</h2>
-
-  <input type="text" class="form-control mb-3" placeholder="Rechercher par nom d'utilisateur"
+  <h2 class="mt-5 mb-4">Yearly Subscriptions</h2>
+  <input type="text" class="form-control mb-3" placeholder="Search by username"
          [(ngModel)]="searchYearly" (input)="filterYearlySubscriptions()"/>
 
   <div *ngIf="errorMessageYearly" class="alert alert-danger">
     {{ errorMessageYearly }}
   </div>
 
-  <table mat-table [dataSource]="yearlySubscriptions" class="table table-hover">
-    <ng-container matColumnDef="username">
-      <th mat-header-cell *matHeaderCellDef> Username </th>
-      <td mat-cell *matCellDef="let subscription"> {{ subscription.username }} </td>
-    </ng-container>
+  <div class="table-responsive">
+    <table mat-table [dataSource]="yearlySubscriptions" class="table table-hover">
+      <ng-container matColumnDef="username">
+        <th mat-header-cell *matHeaderCellDef> Username </th>
+        <td mat-cell *matCellDef="let subscription"> {{ subscription.username }} </td>
+      </ng-container>
 
-    <ng-container matColumnDef="start_date">
-      <th mat-header-cell *matHeaderCellDef> Start Date </th>
-      <td mat-cell *matCellDef="let subscription"> {{ subscription.start_date | date }} </td>
-    </ng-container>
+      <ng-container matColumnDef="start_date">
+        <th mat-header-cell *matHeaderCellDef> Start Date </th>
+        <td mat-cell *matCellDef="let subscription"> {{ subscription.start_date | date }} </td>
+      </ng-container>
 
-    <ng-container matColumnDef="end_date">
-      <th mat-header-cell *matHeaderCellDef> End Date </th>
-      <td mat-cell *matCellDef="let subscription"> {{ subscription.end_date | date }} </td>
-    </ng-container>
+      <ng-container matColumnDef="end_date">
+        <th mat-header-cell *matHeaderCellDef> End Date </th>
+        <td mat-cell *matCellDef="let subscription"> {{ subscription.end_date | date }} </td>
+      </ng-container>
 
-    <ng-container matColumnDef="notification">
-      <th mat-header-cell *matHeaderCellDef> Notification </th>
-      <td mat-cell *matCellDef="let subscription">
-        {{ subscription.notification }}
-      </td>
-    </ng-container>
+      <ng-container matColumnDef="notification">
+        <th mat-header-cell *matHeaderCellDef> Notification </th>
+        <td mat-cell *matCellDef="let subscription"> {{ subscription.notification }} </td>
+      </ng-container>
 
-    <ng-container matColumnDef="action">
-      <th mat-header-cell *matHeaderCellDef> Actions </th>
-      <td mat-cell *matCellDef="let subscription">
-        <button mat-raised-button color="primary" (click)="openNotificationDialog(subscription)">
-          Envoyer Notification
-        </button>
-        <button mat-raised-button color="warn" (click)="cancelSubscription(subscription.id)">
-          Annuler
-        </button>
-        <button mat-raised-button color="accent" (click)="viewHistory(subscription.id)">
-          Voir Historique
-        </button>
-      </td>
-    </ng-container>
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let subscription">
+          <div class="d-flex flex-column flex-md-row gap-2">
+            <button mat-raised-button style="background-color: #d6ecff;color: black" class="mb-1 mb-md-0 mr-md-2" (click)="openNotificationDialog(subscription)">
+              Send Notification
+            </button>
+            <button mat-raised-button color="warn" class="mb-1 mb-md-0 mr-md-2" (click)="cancelSubscription(subscription.id)">
+              Cancel
+            </button>
+            <button mat-raised-button style="background-color: black;color: white" class="mb-1 mb-md-0" (click)="viewHistory(subscription.id)">
+              View History
+            </button>
+          </div>
+        </td>
+      </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
 
-  <h2 class="mt-5 mb-4">Demandes d'Abonnement</h2>
-  <input type="text" class="form-control mb-3" placeholder="Rechercher par nom d'utilisateur"
+  <h2 class="mt-5 mb-4">Subscription Requests</h2>
+  <input type="text" class="form-control mb-3" placeholder="Search by username"
          [(ngModel)]="searchRequest" (input)="filterSubscriptionRequests()"/>
 
   <div *ngIf="errorMessageRequest" class="alert alert-danger">
     {{ errorMessageRequest }}
   </div>
 
-  <table mat-table [dataSource]="subscriptionRequests" class="table table-hover">
-    <ng-container matColumnDef="username">
-      <th mat-header-cell *matHeaderCellDef> Username </th>
-      <td mat-cell *matCellDef="let request"> {{ request.username }} </td>
-    </ng-container>
+  <div class="table-responsive">
+    <table mat-table [dataSource]="subscriptionRequests" class="table table-hover">
+      <ng-container matColumnDef="username">
+        <th mat-header-cell *matHeaderCellDef> Username </th>
+        <td mat-cell *matCellDef="let request"> {{ request.username }} </td>
+      </ng-container>
 
-    <ng-container matColumnDef="start_date">
-      <th mat-header-cell *matHeaderCellDef> Start Date </th>
-      <td mat-cell *matCellDef="let request"> {{ request.start_date | date }} </td>
-    </ng-container>
+      <ng-container matColumnDef="start_date">
+        <th mat-header-cell *matHeaderCellDef> Start Date </th>
+        <td mat-cell *matCellDef="let request"> {{ request.start_date | date }} </td>
+      </ng-container>
 
-    <ng-container matColumnDef="end_date">
-      <th mat-header-cell *matHeaderCellDef> End Date </th>
-      <td mat-cell *matCellDef="let request"> {{ request.end_date | date }} </td>
-    </ng-container>
+      <ng-container matColumnDef="end_date">
+        <th mat-header-cell *matHeaderCellDef> End Date </th>
+        <td mat-cell *matCellDef="let request"> {{ request.end_date | date }} </td>
+      </ng-container>
 
-    <ng-container matColumnDef="notification">
-      <th mat-header-cell *matHeaderCellDef> Notification </th>
-      <td mat-cell *matCellDef="let request">
-        {{ request.notification }}
-      </td>
-    </ng-container>
+      <ng-container matColumnDef="notification">
+        <th mat-header-cell *matHeaderCellDef> Notification </th>
+        <td mat-cell *matCellDef="let request"> {{ request.notification }} </td>
+      </ng-container>
 
-    <ng-container matColumnDef="type">
-      <th mat-header-cell *matHeaderCellDef> Type </th>
-      <td mat-cell *matCellDef="let request"> {{ request.type }} </td>
-    </ng-container>
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef> Type </th>
+        <td mat-cell *matCellDef="let request"> {{ request.type }} </td>
+      </ng-container>
 
-    <ng-container matColumnDef="action">
-      <th mat-header-cell *matHeaderCellDef> Actions </th>
-      <td mat-cell *matCellDef="let request">
-        <button mat-raised-button color="primary" (click)="openNotificationDialog(request)">
-          Envoyer Notification
-        </button>
-        <button mat-raised-button color="primary" (click)="confirmSubscription(request.id)">
-          Confirmer
-        </button>
-        <button mat-raised-button color="warn" (click)="deleteSubscription(request.id)">
-          Supprimer
-        </button>
-      </td>
-    </ng-container>
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let request">
+          <div class="d-flex flex-column flex-md-row gap-2">
+            <button mat-raised-button style="background-color: #d6ecff;color: black" class="mb-1 mb-md-0 mr-md-2" (click)="openNotificationDialog(request)">
+              Send Notification
+            </button>
+            <button mat-raised-button style="background-color: gold;color: white" class="mb-1 mb-md-0 mr-md-2" (click)="confirmSubscription(request.id)">
+              Confirm
+            </button>
+            <button mat-raised-button color="warn" class="mb-1 mb-md-0" (click)="deleteSubscription(request.id)">
+              Delete
+            </button>
+          </div>
+        </td>
+      </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumnsRequests"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumnsRequests;"></tr>
-  </table>
+      <tr mat-header-row *matHeaderRowDef="displayedColumnsRequests"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumnsRequests;"></tr>
+    </table>
+  </div>
 </div>

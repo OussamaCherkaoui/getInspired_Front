@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MatCardContent, MatCardHeader, MatCardModule} from "@angular/material/card";
 import {MatCalendar, MatDatepickerModule} from "@angular/material/datepicker";
-import {MatIconModule} from "@angular/material/icon";
+import {MatIcon, MatIconModule} from "@angular/material/icon";
 import {NgChartsModule} from "ng2-charts";
 import {MembreService} from "../services/membre.service";
 import {SubscriptionService} from "../services/subscription.service";
@@ -17,6 +17,7 @@ Chart.register(...registerables);
   imports: [
     NgChartsModule,
     MatIconModule,
+    MatIcon,
     MatCardModule,
     MatCardHeader,
     MatCardContent,

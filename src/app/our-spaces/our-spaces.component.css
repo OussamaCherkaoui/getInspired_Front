@@ -4,3 +4,43 @@
   object-fit: cover;
   border-radius: 4px;
 }
+
+.table {
+  width: 100%;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.mat-card-content {
+  padding: 0;
+}
+
+@media (max-width: 768px) {
+  .space-image {
+    width: 40px;
+    height: 40px;
+  }
+
+  .mat-card-content {
+    padding: 10px;
+  }
+
+  .table-header, .table-row {
+    font-size: 14px;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .text-end {
+    text-align: right;
+  }
+
+  table {
+    width: 100%;
+  }
+}

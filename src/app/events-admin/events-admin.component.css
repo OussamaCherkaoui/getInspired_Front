@@ -4,3 +4,17 @@
   object-fit: cover;
   border-radius: 4px;
 }
+@media (max-width: 768px) {
+  .search-bar .input-group {
+    flex-direction: column;
+  }
+
+  .search-bar .input-group .form-control,
+  .search-bar .input-group .btn {
+    width: 100%;
+  }
+
+  .input-group .btn {
+    margin-top: 10px;
+  }
+}

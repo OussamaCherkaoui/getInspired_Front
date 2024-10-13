@@ -1,13 +1,13 @@
-<h2 mat-dialog-title>Vos réservations</h2>
+<h2 mat-dialog-title>Your Reservations</h2>
 <mat-dialog-content>
   <table mat-table [dataSource]="reservations" class="mat-elevation-z8">
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Nom </th>
+      <th mat-header-cell *matHeaderCellDef> Name </th>
       <td mat-cell *matCellDef="let reservation"> {{reservation.name}} </td>
     </ng-container>
 
     <ng-container matColumnDef="picture">
-      <th mat-header-cell *matHeaderCellDef> Photo </th>
+      <th mat-header-cell *matHeaderCellDef> Picture </th>
       <td mat-cell *matCellDef="let reservation">
         <img [src]="reservation.picture" alt="User" class="user-picture">
       </td>
@@ -19,17 +19,17 @@
     </ng-container>
 
     <ng-container matColumnDef="startTime">
-      <th mat-header-cell *matHeaderCellDef> Heure de début </th>
+      <th mat-header-cell *matHeaderCellDef> Start Time </th>
       <td mat-cell *matCellDef="let reservation"> {{reservation.start_time | date:'HH:mm'}} </td>
     </ng-container>
 
     <ng-container matColumnDef="endTime">
-      <th mat-header-cell *matHeaderCellDef> Heure de fin </th>
+      <th mat-header-cell *matHeaderCellDef> End Time </th>
       <td mat-cell *matCellDef="let reservation"> {{reservation.end_time | date:'HH:mm'}} </td>
     </ng-container>
 
     <ng-container matColumnDef="status">
-      <th mat-header-cell *matHeaderCellDef> Statut </th>
+      <th mat-header-cell *matHeaderCellDef> Status </th>
       <td mat-cell *matCellDef="let reservation">
         <mat-icon *ngIf="reservation.isConfirmed" color="primary">check_circle</mat-icon>
         <mat-icon *ngIf="!reservation.isConfirmed" color="warn">schedule</mat-icon>
@@ -50,5 +50,5 @@
   </table>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Fermer</button>
+  <button mat-button mat-dialog-close>Close</button>
 </mat-dialog-actions>

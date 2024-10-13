@@ -3,13 +3,30 @@ import {FormsModule} from "@angular/forms";
 import {MatButton} from "@angular/material/button";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {SubscriptionService} from "../services/subscription.service";
+import {MatCard, MatCardActions, MatCardContent, MatCardHeader, MatCardTitle} from "@angular/material/card";
+import {MatError, MatFormField, MatHint, MatLabel} from "@angular/material/form-field";
+import {MatInput} from "@angular/material/input";
+import {MatIcon} from "@angular/material/icon";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-dialog',
   standalone: true,
   imports: [
     FormsModule,
-    MatButton
+    MatButton,
+    MatCard,
+    MatCardTitle,
+    MatCardHeader,
+    MatCardContent,
+    MatFormField,
+    MatInput,
+    MatCardActions,
+    MatLabel,
+    MatHint,
+    MatError,
+    MatIcon,
+    NgIf
   ],
   templateUrl: './dialog.component.html',
   styleUrl: './dialog.component.css'

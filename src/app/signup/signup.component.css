@@ -12,10 +12,15 @@
   background-color: #f4f4f4;
   padding: 2rem;
   text-align: center;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .right-section {
+  background-image: url("/assets/pictures/openWorkSpace.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
   padding: 2rem;
 }
 
@@ -39,8 +44,9 @@ p {
 }
 
 .sign-up-container {
-  background-color: #fff;
-  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.56);
+  color: white;
+  padding: 1rem 2rem;
   border-radius: 10px;
   max-width: 450px;
   width: 100%;
@@ -55,15 +61,15 @@ p {
 .signup-button {
   width: 100%;
   color: #fff;
-  background-color: black;
+  background-color: #8e8e8e;
   font-size: 1.2rem;
   font-weight: 500;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   transition: background-color 0.4s ease;
 }
 
 .signup-button:hover {
-  background-color: #333;
+  background-color: #5e5e5e;
 }
 
 .success-message {
@@ -105,7 +111,7 @@ p {
 }
 
 .home-button:hover {
-  background-color: #879797;
+  background-color: rgb(99, 91, 91);
   transform: translateY(-2px);
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }

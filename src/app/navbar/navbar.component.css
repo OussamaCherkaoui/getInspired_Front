@@ -9,7 +9,6 @@ nav {
 }
 
 .logo img {
-  transform: scale(1.10);
   transition: transform 0.3s ease;
 }
 
@@ -28,7 +27,7 @@ nav {
 }
 
 .menu-toggle:hover {
-  color: #fff8d1;
+  color: antiquewhite;
 }
 
 .nav-content {
@@ -52,13 +51,13 @@ nav {
 
 .links a.active {
   font-size: 1em;
-  color: #fff8d1;
+  color: antiquewhite;
   background-color: rgba(255,255,255,0.1);
 }
 
 .links a:hover {
   font-size: 1em;
-  color: #fff8d1;
+  color: antiquewhite;
   background-color: rgba(255,255,255,0.1);
 }
 

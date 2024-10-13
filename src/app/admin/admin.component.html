@@ -1,6 +1,7 @@
-<mat-sidenav-container class="sidenav-container h-100">
-  <mat-sidenav #sidenav mode="side" opened>
-    <div class="user-view p-4 text-center">
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav [mode]="isScreenSmall ? 'over' : 'side'" [(opened)]="!isScreenSmall || sidenavOpen">
+    <!-- Contenu de la barre latérale -->
+    <div class="user-view p-4 text-center text-white bg-black">
       <div class="background">
         <mat-icon class="background-icon">landscape</mat-icon>
       </div>
@@ -8,20 +9,29 @@
       <h6>{{ adminName }}</h6>
     </div>
     <mat-nav-list>
-      <a mat-list-item *ngFor="let item of menuItems" [routerLink]="item.link" class="text-white" routerLinkActive="active">
+      <a mat-list-item *ngFor="let item of menuItems" [routerLink]="item.link" routerLinkActive="active" (click)="closeSidenavOnMobile(sidenav)">
         <mat-icon class="mr-3">{{item.icon}}</mat-icon>
         {{item.text}}
       </a>
     </mat-nav-list>
-    <mat-divider class="my-2"></mat-divider>
+    <mat-divider></mat-divider>
     <mat-nav-list>
-      <a mat-list-item (click)="logout()" class="text-white">
+      <a mat-list-item (click)="logout(); closeSidenavOnMobile(sidenav)">
         <mat-icon class="mr-3">exit_to_app</mat-icon>
         Logout
       </a>
     </mat-nav-list>
   </mat-sidenav>
+
+  <!-- Contenu principal -->
   <mat-sidenav-content>
+    <mat-toolbar style="background-color: black" class="d-flex align-items-center justify-content-center mat-elevation-z6" >
+      <button style="color: white" mat-icon-button (click)="sidenav.toggle()" *ngIf="isScreenSmall">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <img src="assets/pictures/logoFooter.png" alt="Logo Get Inspired" class="logo" height="50" width="50"/>
+      <span class="title">Get Inspired - Admin Panel</span>
+    </mat-toolbar>
     <div class="container-fluid p-4">
       <router-outlet></router-outlet>
     </div>

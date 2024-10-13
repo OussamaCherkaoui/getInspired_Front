@@ -1,13 +1,13 @@
-<h2 mat-dialog-title>Réservations d'espaces pour événements</h2>
+<h2 mat-dialog-title>Event Reservations</h2>
 <mat-dialog-content>
   <table mat-table [dataSource]="reservations" class="mat-elevation-z8">
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Nom de l'événement </th>
+      <th mat-header-cell *matHeaderCellDef> Event Name </th>
       <td mat-cell *matCellDef="let reservation"> {{reservation.nameEvent}} </td>
     </ng-container>
 
     <ng-container matColumnDef="picture">
-      <th mat-header-cell *matHeaderCellDef> Photo </th>
+      <th mat-header-cell *matHeaderCellDef> Picture </th>
       <td mat-cell *matCellDef="let reservation">
         <img [src]="reservation.picture" alt="User" class="user-picture">
       </td>
@@ -19,17 +19,17 @@
     </ng-container>
 
     <ng-container matColumnDef="status">
-      <th mat-header-cell *matHeaderCellDef> Statut </th>
+      <th mat-header-cell *matHeaderCellDef> Status </th>
       <td mat-cell *matCellDef="let reservation">
-        <mat-icon *ngIf="reservation.isConfirmed" color="primary" matTooltip="Confirmé">check_circle</mat-icon>
-        <mat-icon *ngIf="!reservation.isConfirmed" color="warn" matTooltip="En attente">schedule</mat-icon>
+        <mat-icon *ngIf="reservation.isConfirmed" color="primary" matTooltip="Confirmed">check_circle</mat-icon>
+        <mat-icon *ngIf="!reservation.isConfirmed" color="warn" matTooltip="Pending">schedule</mat-icon>
       </td>
     </ng-container>
 
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef> Actions </th>
       <td mat-cell *matCellDef="let reservation">
-        <button mat-icon-button color="warn" (click)="cancelReservation(reservation.id)" [disabled]="reservation.isConfirmed" matTooltip="Annuler la réservation">
+        <button mat-icon-button color="warn" (click)="cancelReservation(reservation.id)" [disabled]="reservation.isConfirmed" matTooltip="Cancel Reservation">
           <mat-icon>cancel</mat-icon>
         </button>
       </td>
@@ -40,5 +40,5 @@
   </table>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Fermer</button>
+  <button mat-button mat-dialog-close>Close</button>
 </mat-dialog-actions>

@@ -1,8 +1,8 @@
-<div class="container mt-2" *ngIf="!isChildRouteActive">
-  <div class="row" style="height: 500px">
-    <div class="col-md-6 mb-4" >
+<div class="container" *ngIf="!isChildRouteActive">
+  <div class="row">
+    <div class="col-md-6 mb-4">
       <mat-card class="h-100 custom-card">
-        <mat-card-header  style="background-color: blueviolet" class="text-white">
+        <mat-card-header style="background-color: blueviolet" class="text-white">
           <mat-card-title class="mb-0">
             <mat-icon class="mr-2">business</mat-icon>
             Our Spaces
@@ -10,10 +10,10 @@
         </mat-card-header>
         <img mat-card-image style="height: 340px" src="/assets/pictures/Working-amico.png" alt="picture space" class="card-img">
         <mat-card-content class="p-3">
-          <p class="card-text">Explorez et gérez nos espaces de travail.</p>
+          <p class="card-text">Explore and manage our coworking spaces.</p>
         </mat-card-content>
         <mat-card-actions class="p-3">
-          <button mat-raised-button style="background-color: mediumpurple;color: white" class="w-100" routerLink="/admin/spaces/ourSpaces/">Accéder</button>
+          <button mat-raised-button style="background-color: mediumpurple; color: white" class="w-100" routerLink="/admin/spaces/ourSpaces/">Access</button>
         </mat-card-actions>
       </mat-card>
     </div>
@@ -28,10 +28,10 @@
         </mat-card-header>
         <img mat-card-image style="height: 340px" src="/assets/pictures/Working%20remotely-cuate.png" alt="picture reserve" class="card-img">
         <mat-card-content class="p-3">
-          <p class="card-text">Visualisez et gérez les réservations.</p>
+          <p class="card-text">View and manage reservations.</p>
         </mat-card-content>
         <mat-card-actions class="p-3">
-          <button mat-stroked-button style="background-color: gold; color: black" class="w-100" routerLink="/admin/spaces/reservations">Voir les détails</button>
+          <button mat-stroked-button style="background-color: gold; color: black" class="w-100" routerLink="/admin/spaces/reservations">View Details</button>
         </mat-card-actions>
       </mat-card>
     </div>
@@ -40,4 +40,3 @@
 <div *ngIf="isChildRouteActive">
   <router-outlet></router-outlet>
 </div>
-

@@ -15,6 +15,10 @@
 }
 
 .right-section {
+  background-image: url("/assets/pictures/openWorkSpace.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
   padding: 2rem;
 }
 
@@ -37,7 +41,8 @@ p {
 }
 
 .form {
-  background-color: #fff;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
   padding: 2rem;
   border-radius: 10px;
   max-width: 450px;
@@ -53,15 +58,15 @@ p {
 .login-button {
   width: 100%;
   color: #fff;
-  background-color: #009579;
+  background-color: #8e8e8e;
   font-size: 1.2rem;
   font-weight: 500;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   transition: background-color 0.4s ease;
 }
 
 .login-button:hover {
-  background-color: #006653;
+  background-color: #5e5e5e;
 }
 
 .home-button {
@@ -79,7 +84,7 @@ p {
 }
 
 .home-button:hover {
-  background-color: #879797;
+  background-color: rgb(99, 91, 91);
   transform: translateY(-2px);
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }

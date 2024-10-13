@@ -1,0 +1,45 @@
+.table-responsive {
+  overflow-x: auto;
+}
+
+.mat-elevation-z8 {
+  margin-bottom: 20px;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  h4 {
+    font-size: 1.2rem;
+  }
+
+  .mat-header-cell, .mat-cell {
+    font-size: 12px;
+  }
+
+  .mat-raised-button {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .table-responsive {
+    margin-bottom: 20px;
+  }
+
+  .input-group {
+    flex-direction: column;
+  }
+
+  .input-group .form-control,
+  .input-group button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
