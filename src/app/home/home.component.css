@@ -1,6 +1,21 @@
 .header-section {
+  padding: 20px;
+}
+
+.gif-container {
+  max-width: 450px;
+  width: 100%;
+}
+
+.header-gif {
+  max-width: 100%;
+  height: auto;
+}
+
+
+.header-section {
   position: relative;
-  height: 490px;
+  height: 510px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -18,13 +33,12 @@
 .header-content {
   align-items: center;
   justify-content: center;
-  margin-top: 100px;
   position: absolute;
   color: white;
 }
 .header-content h1{
   margin-bottom: 40px;
-  font-weight: 600;
+  font-weight: 550;
   font-size: 45px;
 }
 
@@ -36,7 +50,7 @@
   justify-content: center;
   gap: 20px;
   padding: 10px 20px;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: #0056b3;
   color: white;
   text-decoration: none;
   border-radius: 10px;
@@ -46,7 +60,7 @@
 }
 
 .btn-read-more:hover {
-  background-color: rgba(0, 0, 0, 0.91);
+  background-color: #0056b3;
 }
 
 
@@ -84,8 +98,8 @@
 }
 
 .inspiration-section {
-  background-color: #2919BA;
-  color: white;
+  background-color: rgb(234 237 245);
+  color: #000000;
   height: 370px;
   text-align: center;
   display: flex;
@@ -113,7 +127,7 @@
 }
 
 .view-more-btn {
-  background-color: #290063;
+  background-color: #001e40;
   color: white;
   font-weight: 400;
   padding: 22px 40px;
@@ -130,7 +144,7 @@
   gap: 14px;
 }
 .view-more-btn:hover {
-  background-color: #1d004c;
+  background-color: #001125;
 }
 .icon-right {
   vertical-align: middle;
@@ -207,4 +221,81 @@
 }
 .view-more-subscription:hover {
   background-color: #656565;
+}
+
+.header-section {
+  padding: 2rem 1rem;
+}
+
+.header-content {
+  flex-direction: column;
+  align-items: center;
+}
+
+.gif-container {
+  margin-bottom: 2rem;
+}
+
+.header-gif {
+  max-width: 100%;
+  height: auto;
+}
+
+.text-content {
+  text-align: center;
+  color: white;
+}
+
+@media (max-width: 767px) {
+  .header-section {
+    height: auto;
+    min-height: 500px;
+    padding: 2rem 1rem;
+  }
+
+  .header-content {
+    flex-direction: column;
+    padding: 0 15px;
+  }
+
+  .gif-container {
+    max-width: 350px;
+    margin-bottom: 0.5rem;
+    width: 100%;
+  }
+
+  .text-content {
+    width: 100%;
+    text-align: center;
+    padding: 0;
+  }
+
+  .header-content h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .btn-read-more {
+    padding: 8px 16px;
+    font-size: 16px;
+    width: 180px;
+    margin: auto;
+  }
+
+  .btn-read-more svg {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+
+@media (max-width: 375px) {
+  .header-content h1 {
+    font-size: 1.75rem;
+  }
+
+  .gif-container {
+    max-width: 220px;
+  }
+
 }

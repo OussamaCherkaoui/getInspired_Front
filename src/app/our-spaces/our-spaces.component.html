@@ -1,8 +1,8 @@
-<div class="container mt-1" *ngIf="!isChildRouteActive">
+<div class="container mt-3" *ngIf="!isChildRouteActive">
 
   <div class="row mb-3">
     <div class="col-12 text-end">
-      <button mat-raised-button color="primary" routerLink="/admin/spaces/ourSpaces/addSpace" class="btn" style="background-color:#d6ecff;color: black">
+      <button mat-raised-button color="primary" routerLink="/admin/spaces/ourSpaces/addSpace" class="btn add-space-btn">
         <mat-icon>add</mat-icon> Add a Space
       </button>
     </div>
@@ -10,42 +10,42 @@
 
   <div class="row">
     <div class="col-12">
-      <mat-card>
+      <mat-card class="space-card">
         <mat-card-content>
           <div class="table-responsive">
-            <table mat-table [dataSource]="spaces" class="table table-bordered">
+            <table mat-table [dataSource]="spaces" class="table table-borderless">
 
               <ng-container matColumnDef="name">
-                <th mat-header-cell *matHeaderCellDef class="text-center">Name</th>
+                <th mat-header-cell *matHeaderCellDef class="text-center header-cell">Name</th>
                 <td mat-cell *matCellDef="let space" class="text-center">{{ space.name }}</td>
               </ng-container>
 
               <ng-container matColumnDef="description">
-                <th mat-header-cell *matHeaderCellDef class="text-center">Description</th>
-                <td mat-cell *matCellDef="let space" class="text-center">
+                <th mat-header-cell *matHeaderCellDef class="text-center header-cell">Description</th>
+                <td mat-cell *matCellDef="let space" class="text-center description-cell">
                   {{ space.description | slice: 0: 50 }}{{ space.description.length > 50 ? '...' : '' }}
                 </td>
               </ng-container>
 
               <ng-container matColumnDef="picture">
-                <th mat-header-cell *matHeaderCellDef class="text-center">Image</th>
+                <th mat-header-cell *matHeaderCellDef class="text-center header-cell">Image</th>
                 <td mat-cell *matCellDef="let space" class="text-center">
-                  <img [src]="space.picture" alt="{{ space.name }}" class="img-fluid rounded space-image">
+                  <img [src]="space.picture" alt="{{ space.name }}" class="img-fluid space-image">
                 </td>
               </ng-container>
 
               <ng-container matColumnDef="price_per_day">
-                <th mat-header-cell *matHeaderCellDef class="text-center">Price per day</th>
+                <th mat-header-cell *matHeaderCellDef class="text-center header-cell">Price per day</th>
                 <td mat-cell *matCellDef="let space" class="text-center">{{ space.price_per_day | currency: 'USD' }}</td>
               </ng-container>
 
               <ng-container matColumnDef="actions">
-                <th mat-header-cell *matHeaderCellDef class="text-center">Actions</th>
+                <th mat-header-cell *matHeaderCellDef class="text-center header-cell">Actions</th>
                 <td mat-cell *matCellDef="let space" class="text-center">
-                  <button mat-icon-button style="color: #8bcdff" (click)="editSpace(space.id)">
+                  <button mat-icon-button class="action-btn edit-btn" (click)="editSpace(space.id)">
                     <mat-icon>edit</mat-icon>
                   </button>
-                  <button mat-icon-button color="warn" (click)="deleteSpace(space.id)">
+                  <button mat-icon-button class="action-btn delete-btn" (click)="deleteSpace(space.id)">
                     <mat-icon>delete</mat-icon>
                   </button>
                 </td>

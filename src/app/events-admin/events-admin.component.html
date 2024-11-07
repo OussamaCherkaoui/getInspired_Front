@@ -1,23 +1,17 @@
-<div class="container mt-1" *ngIf="!isChildRouteActive">
-  <div class="row mb-3">
-    <div class="col-sm-12 col-md-6">
-      <button mat-raised-button style="background-color: #d6ecff;color: black" routerLink="/admin/events/addEvent" class="btn btn-primary w-100">
+<div class="container mt-3" *ngIf="!isChildRouteActive">
+  <div class="row mb-4">
+    <div class="col-12 col-md-6 mb-3">
+      <button mat-raised-button color="primary" class="btn btn-add w-100" routerLink="/admin/events/addEvent">
         <mat-icon>add</mat-icon> Add Event
       </button>
     </div>
 
-    <div class="col-sm-12 col-md-6">
-      <div class="search-bar mb-4">
-        <div class="input-group row">
-          <div class="col-sm-12 col-md-6 mb-2">
-            <input type="date" [(ngModel)]="searchDate" class="form-control" placeholder="Select date">
-          </div>
-          <div class="col-sm-6 col-md-3 mb-2">
-            <button mat-raised-button style="background-color: #6ebcff;color: black" (click)="searchEventByDate()" class="w-100">Search</button>
-          </div>
-          <div class="col-sm-6 col-md-3">
-            <button mat-raised-button style="background-color: black;color: white" (click)="loadEvents()" class="w-100">Show All</button>
-          </div>
+    <div class="col-12 col-md-6">
+      <div class="search-bar mb-3">
+        <div class="input-group">
+          <input type="date" [(ngModel)]="searchDate" class="form-control" placeholder="Select date" />
+          <button mat-raised-button class="btn btn-search">Search</button>
+          <button mat-raised-button class="btn btn-show-all">Show All</button>
         </div>
       </div>
     </div>
@@ -28,7 +22,7 @@
       <mat-card>
         <mat-card-content>
           <div class="table-responsive">
-            <table mat-table [dataSource]="events" class="table table-bordered w-100">
+            <table mat-table [dataSource]="events" class="table">
               <ng-container matColumnDef="name">
                 <th mat-header-cell *matHeaderCellDef class="text-center">Name</th>
                 <td mat-cell *matCellDef="let event" class="text-center">{{ event.name }}</td>
@@ -49,27 +43,27 @@
               <ng-container matColumnDef="picture">
                 <th mat-header-cell *matHeaderCellDef class="text-center">Image</th>
                 <td mat-cell *matCellDef="let event" class="text-center">
-                  <img [src]="event.picture" alt="{{ event.name }}" class="img-fluid space-image">
+                  <img [src]="event.picture" alt="{{ event.name }}" class="img-fluid event-image" />
                 </td>
               </ng-container>
 
               <ng-container matColumnDef="actions">
                 <th mat-header-cell *matHeaderCellDef class="text-center">Actions</th>
                 <td mat-cell *matCellDef="let event" class="text-center">
-                  <button mat-icon-button style="color: #5fb3fb" (click)="editEvent(event.id)">
-                    <mat-icon>edit</mat-icon>
+                  <button mat-icon-button (click)="editEvent(event.id)">
+                    <mat-icon color="primary">edit</mat-icon>
                   </button>
                   <button mat-icon-button color="warn" (click)="deleteEvent(event.id)">
                     <mat-icon>delete</mat-icon>
                   </button>
-                  <button mat-raised-button style="background-color: #d6ecff;color: black" (click)="viewReservations(event.id)">
+                  <button mat-raised-button color="primary" class="btn btn-view-reservations" (click)="viewReservations(event.id)">
                     View Reservations
                   </button>
                 </td>
               </ng-container>
 
               <tr mat-header-row *matHeaderRowDef="displayedColumns" class="table-header"></tr>
-              <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="table-row"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
           </div>
 
@@ -79,4 +73,5 @@
     </div>
   </div>
 </div>
+
 <router-outlet></router-outlet>

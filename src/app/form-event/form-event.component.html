@@ -1,4 +1,4 @@
-<div class="container mt-2">
+<div class="container">
   <h2>{{ isCreateMode ? 'Create an Event' : 'Update an Event' }}</h2>
 
   <form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
@@ -35,7 +35,7 @@
       </div>
     </div>
 
-    <p *ngIf="message" class="message success-message">{{ message }}</p>
+    <p *ngIf="message" class="message success-message mt-1">{{ message }}</p>
 
     <button type="submit" class="btn btn-primary mt-3" [disabled]="eventForm.invalid">{{ isCreateMode ? 'Create' : 'Update' }}</button>
 

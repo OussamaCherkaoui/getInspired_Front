@@ -1,46 +1,102 @@
-.space-image {
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
-  border-radius: 4px;
+.container {
+  margin-top: 10px;
 }
 
-.table {
+.add-space-btn {
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.add-space-btn:hover {
+  background-color: #c2e4ff;
+}
+
+th {
+  background-color: #eaeaea;
+  font-weight: 600;
+  color: #555555;
+}
+
+.space-card {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.table-borderless {
   width: 100%;
+  border-collapse: collapse;
 }
 
-.table-responsive {
-  overflow-x: auto;
+.header-cell {
+  font-weight: bold;
+  text-align: center;
+  padding: 12px;
 }
 
-.mat-card-content {
-  padding: 0;
+.table-row, .header-cell {
+  border-bottom: 1px solid #e9ecef;
+}
+
+.table-row td {
+  padding: 10px;
+  text-align: center;
+}
+
+.space-image {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+.space-image:hover {
+  transform: scale(1.1);
+}
+
+.action-btn {
+  color: #6c757d;
+  margin: 0 4px;
+  transition: color 0.3s ease;
+}
+
+.edit-btn mat-icon {
+  color: #007bff;
+}
+
+.edit-btn:hover mat-icon {
+  color: #0056b3;
+}
+
+.delete-btn mat-icon {
+  color: #dc3545;
+}
+
+.delete-btn:hover mat-icon {
+  color: #a71d2a;
+}
+
+.mat-paginator {
+  border-top: 1px solid #e9ecef;
+  padding-top: 10px;
 }
 
 @media (max-width: 768px) {
   .space-image {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
   }
 
-  .mat-card-content {
-    padding: 10px;
-  }
-
-  .table-header, .table-row {
+  .add-space-btn {
+    padding: 8px;
     font-size: 14px;
   }
 
-  button {
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  .text-end {
-    text-align: right;
-  }
-
-  table {
-    width: 100%;
+  .table-row, .header-cell {
+    font-size: 14px;
   }
 }

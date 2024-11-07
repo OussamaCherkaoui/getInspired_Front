@@ -1,8 +1,8 @@
 <div class="dashboard-overview">
-  <div class="row">
-    <div class="col-md-3 d-flex align-items-center justify-content-center">
-      <mat-card class="stat-card users-card">
-        <mat-card-header>
+  <div class="row m-0">
+    <div class="col-md-3 d-flex flex-item">
+      <mat-card class="stat-card users-card d-flex align-items-center justify-content-center gap-3">
+        <mat-card-header class="px-0 d-flex align-items-center justify-content-center gap-1">
           <mat-icon>person</mat-icon>
           <mat-card-title>Registered Users</mat-card-title>
         </mat-card-header>
@@ -13,8 +13,8 @@
     </div>
 
     <div class="col-md-3 flex-item">
-      <mat-card class="stat-card subscription-card">
-        <mat-card-header>
+      <mat-card class="stat-card subscription-card d-flex align-items-center justify-content-center gap-3">
+        <mat-card-header class="px-0 d-flex align-items-center justify-content-center gap-1">
           <mat-icon>subscriptions</mat-icon>
           <mat-card-title>Subscriptions</mat-card-title>
         </mat-card-header>
@@ -25,8 +25,8 @@
     </div>
 
     <div class="col-md-3 flex-item">
-      <mat-card class="stat-card events-card">
-        <mat-card-header>
+      <mat-card class="stat-card events-card d-flex align-items-center justify-content-center gap-3">
+        <mat-card-header class="px-0 d-flex align-items-center justify-content-center gap-1">
           <mat-icon>event</mat-icon>
           <mat-card-title>Upcoming Events</mat-card-title>
         </mat-card-header>
@@ -37,8 +37,8 @@
     </div>
 
     <div class="col-md-3 flex-item">
-      <mat-card class="stat-card spaces-card">
-        <mat-card-header>
+      <mat-card class="stat-card spaces-card d-flex align-items-center justify-content-center gap-3">
+        <mat-card-header class="px-0 d-flex align-items-center justify-content-center gap-1">
           <mat-icon>meeting_room</mat-icon>
           <mat-card-title>Free Spaces Today</mat-card-title>
         </mat-card-header>
@@ -66,7 +66,7 @@
         <mat-card-header>
           <mat-card-title>Subscription Analysis: Distribution by Subscription Types</mat-card-title>
         </mat-card-header>
-        <mat-card-content>
+        <mat-card-content style="height: 287px">
           <canvas baseChart
                   [datasets]="[{ data: chartData }]"
                   [labels]="chartLabels">

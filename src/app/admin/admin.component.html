@@ -1,6 +1,6 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #sidenav [mode]="isScreenSmall ? 'over' : 'side'" [(opened)]="!isScreenSmall || sidenavOpen">
-    <!-- Contenu de la barre latérale -->
+  <mat-sidenav style="background-color: #e1e1e1" #sidenav [mode]="isScreenSmall ? 'over' : 'side'" [(opened)]="!isScreenSmall || sidenavOpen">
+
     <div class="user-view p-4 text-center text-white bg-black">
       <div class="background">
         <mat-icon class="background-icon">landscape</mat-icon>
@@ -9,16 +9,20 @@
       <h6>{{ adminName }}</h6>
     </div>
     <mat-nav-list>
-      <a mat-list-item *ngFor="let item of menuItems" [routerLink]="item.link" routerLinkActive="active" (click)="closeSidenavOnMobile(sidenav)">
-        <mat-icon class="mr-3">{{item.icon}}</mat-icon>
-        {{item.text}}
+      <a mat-list-item  *ngFor="let item of menuItems" [routerLink]="item.link" routerLinkActive="active" (click)="closeSidenavOnMobile(sidenav)">
+        <div class="d-flex align-items-center justify-content-start gap-3">
+          <div><mat-icon>{{item.icon}}</mat-icon></div>
+          <div>{{item.text}}</div>
+        </div>
       </a>
     </mat-nav-list>
     <mat-divider></mat-divider>
     <mat-nav-list>
       <a mat-list-item (click)="logout(); closeSidenavOnMobile(sidenav)">
-        <mat-icon class="mr-3">exit_to_app</mat-icon>
-        Logout
+        <div class="d-flex align-items-center justify-content-start gap-3">
+          <div><mat-icon class="mr-3">exit_to_app</mat-icon></div>
+          <div>Logout</div>
+        </div>
       </a>
     </mat-nav-list>
   </mat-sidenav>
