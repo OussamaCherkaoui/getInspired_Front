@@ -87,9 +87,6 @@
   font-weight: bold;
 }
 
-.with-bg {
-  background-color: #f8f9fa;
-}
 
 .row {
   display: flex;
@@ -127,7 +124,7 @@
 }
 
 .view-more-btn {
-  background-color: #001e40;
+  background-color: #0056b3;
   color: white;
   font-weight: 400;
   padding: 22px 40px;
