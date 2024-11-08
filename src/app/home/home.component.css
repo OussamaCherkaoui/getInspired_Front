@@ -31,8 +31,7 @@
 }
 
 .header-content {
-  align-items: center;
-  justify-content: center;
+  gap: 50px;
   position: absolute;
   color: white;
 }
@@ -252,7 +251,9 @@
 
   .header-content {
     flex-direction: column;
-    padding: 0 15px;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
   }
 
   .gif-container {
